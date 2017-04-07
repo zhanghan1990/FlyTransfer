@@ -5,6 +5,7 @@ package Yosemite.framework.master
 
 import java.util.concurrent.ConcurrentHashMap
 
+import Yosemite.framework.slave.SlaveInfo
 import Yosemite.{Logging, YosemiteException}
 import Yosemite.framework.{RegisterJob, RegisterSlave}
 import Yosemite.utils.AkkaUtils

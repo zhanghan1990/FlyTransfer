@@ -4,7 +4,7 @@ import java.util.Date
 import java.util.concurrent.ConcurrentHashMap
 
 import Yosemite.framework.JobDescription
-
+import Yosemite.framework.slave.SlaveInfo
 import akka.actor.ActorRef
 
 /**

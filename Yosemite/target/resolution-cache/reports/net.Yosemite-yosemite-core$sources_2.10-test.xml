@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="ivy-report.xsl"?>
+<ivy-report version="1.0">
+	<info
+		organisation="net.Yosemite"
+		module="yosemite-core$sources_2.10"
+		revision="0.2.0-SNAPSHOT"
+		conf="test"
+		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom, scala-tool"
+		date="20170406203942"/>
+	<dependencies>
+		<module organisation="org.slf4j" name="slf4j-log4j12">
+			<revision name="1.7.5" status="release" pubdate="20130325165252" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="28">
+				<metadata-artifact status="no" details="" size="4635" time="0" location="/Users/zhanghan/.ivy2/cache/org.slf4j/slf4j-log4j12/ivy-1.7.5.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slf4j-log4j12" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="10350" time="0" location="/Users/zhanghan/.ivy2/cache/org.slf4j/slf4j-log4j12/srcs/slf4j-log4j12-1.7.5-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/slf4j/slf4j-log4j12/1.7.5/slf4j-log4j12-1.7.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="net.liftweb" name="lift-json_2.10">
+			<revision name="2.5.1" status="release" pubdate="20130625220504" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.liftweb.net" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="27">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3042" time="0" location="/Users/zhanghan/.ivy2/cache/net.liftweb/lift-json_2.10/ivy-2.5.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/net/liftweb/lift-json_2.10/2.5.1/lift-json_2.10-2.5.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.5.1" rev-constraint-default="2.5.1" rev-constraint-dynamic="2.5.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="lift-json_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="34031" time="0" location="/Users/zhanghan/.ivy2/cache/net.liftweb/lift-json_2.10/srcs/lift-json_2.10-2.5.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/net/liftweb/lift-json_2.10/2.5.1/lift-json_2.10-2.5.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.netty" name="netty-all">
+			<revision name="4.0.23.Final" status="release" pubdate="20140815140640" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="26">
+				<metadata-artifact status="no" details="" size="15751" time="0" location="/Users/zhanghan/.ivy2/cache/io.netty/netty-all/ivy-4.0.23.Final.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="4.0.23.Final" rev-constraint-default="4.0.23.Final" rev-constraint-dynamic="4.0.23.Final" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="netty-all" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1442971" time="0" location="/Users/zhanghan/.ivy2/cache/io.netty/netty-all/srcs/netty-all-4.0.23.Final-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/io/netty/netty-all/4.0.23.Final/netty-all-4.0.23.Final-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scalatest" name="scalatest_2.10">
+			<revision name="2.2.4" status="release" pubdate="20150129031706" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scalatest.org" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="25">
+				<license name="the Apache License, ASL Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="4816" time="0" location="/Users/zhanghan/.ivy2/cache/org.scalatest/scalatest_2.10/ivy-2.2.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.4/scalatest_2.10-2.2.4.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.2.4" rev-constraint-default="2.2.4" rev-constraint-dynamic="2.2.4" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalatest_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1438876" time="0" location="/Users/zhanghan/.ivy2/cache/org.scalatest/scalatest_2.10/srcs/scalatest_2.10-2.2.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scalatest/scalatest_2.10/2.2.4/scalatest_2.10-2.2.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.thoughtworks.paranamer" name="paranamer">
+			<revision name="2.4.1" status="release" pubdate="20120128043343" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="23">
+				<metadata-artifact status="no" details="" size="3447" time="0" location="/Users/zhanghan/.ivy2/cache/com.thoughtworks.paranamer/paranamer/ivy-2.4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.4.1" rev-constraint-default="2.4.1" rev-constraint-dynamic="2.4.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="paranamer" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="27016" time="0" location="/Users/zhanghan/.ivy2/cache/com.thoughtworks.paranamer/paranamer/srcs/paranamer-2.4.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/thoughtworks/paranamer/paranamer/2.4.1/paranamer-2.4.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="javax.servlet" name="javax.servlet-api">
+			<revision name="3.0.1" status="release" pubdate="20110712154053" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://servlet-spec.java.net" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="20">
+				<license name="CDDL + GPLv2 with classpath exception" url="https://glassfish.dev.java.net/nonav/public/CDDL+GPL.html"/>
+				<metadata-artifact status="no" details="" size="3676" time="0" location="/Users/zhanghan/.ivy2/cache/javax.servlet/javax.servlet-api/ivy-3.0.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="3.0.1" rev-constraint-default="3.0.1" rev-constraint-dynamic="3.0.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="javax.servlet-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="212871" time="0" location="/Users/zhanghan/.ivy2/cache/javax.servlet/javax.servlet-api/srcs/javax.servlet-api-3.0.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.slf4j" name="slf4j-api">
+			<revision name="1.7.5" status="release" pubdate="20130325165215" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.slf4j.org" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="19">
+				<metadata-artifact status="no" details="" size="4469" time="0" location="/Users/zhanghan/.ivy2/cache/org.slf4j/slf4j-api/ivy-1.7.5.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="1.7.5" rev-constraint-default="1.7.5" rev-constraint-dynamic="1.7.5" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="slf4j-api" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="47186" time="0" location="/Users/zhanghan/.ivy2/cache/org.slf4j/slf4j-api/srcs/slf4j-api-1.7.5-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/slf4j/slf4j-api/1.7.5/slf4j-api-1.7.5-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.github.romix.akka" name="akka-kryo-serialization_2.10">
+			<revision name="0.3.1" status="release" pubdate="20140306154132" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/romix/akka-kryo-serialization" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="18">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3164" time="0" location="/Users/zhanghan/.ivy2/cache/com.github.romix.akka/akka-kryo-serialization_2.10/ivy-0.3.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/github/romix/akka/akka-kryo-serialization_2.10/0.3.1/akka-kryo-serialization_2.10-0.3.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="0.3.1" rev-constraint-default="0.3.1" rev-constraint-dynamic="0.3.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-kryo-serialization_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="19108" time="0" location="/Users/zhanghan/.ivy2/cache/com.github.romix.akka/akka-kryo-serialization_2.10/srcs/akka-kryo-serialization_2.10-0.3.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/github/romix/akka/akka-kryo-serialization_2.10/0.3.1/akka-kryo-serialization_2.10-0.3.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.esotericsoftware.kryo" name="kryo">
+			<revision name="2.22" status="release" pubdate="20130930173322" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/kryo/" downloaded="false" searched="false" default="false" conf="master(*), default, compile, runtime(*), runtime, default(compile), compile(*), master" position="15">
+				<license name="New BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="3035" time="0" location="/Users/zhanghan/.ivy2/cache/com.esotericsoftware.kryo/kryo/ivy-2.22.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/esotericsoftware/kryo/kryo/2.22/kryo-2.22.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.22" rev-constraint-default="2.22" rev-constraint-dynamic="2.22" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="kryo" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="113198" time="0" location="/Users/zhanghan/.ivy2/cache/com.esotericsoftware.kryo/kryo/srcs/kryo-2.22-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/esotericsoftware/kryo/kryo/2.22/kryo-2.22-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-kernel_2.10">
+			<revision name="2.2.1" status="release" pubdate="20130828134927" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="14">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2995" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-kernel_2.10/ivy-2.2.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-kernel_2.10/2.2.1/akka-kernel_2.10-2.2.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.2.1" rev-constraint-default="2.2.1" rev-constraint-dynamic="2.2.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-kernel_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2551" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-kernel_2.10/srcs/akka-kernel_2.10-2.2.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-kernel_2.10/2.2.1/akka-kernel_2.10-2.2.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scalap">
+			<revision name="2.10.4" status="release" pubdate="20140318174827" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="12">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2650" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scalap/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-lang/scalap/2.10.4/scalap-2.10.4.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scalap" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="40843" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scalap/srcs/scalap-2.10.4-sources.jar">
+						<origin-location is-local="false" location="https://repo1.maven.org/maven2/org/scala-lang/scalap/2.10.4/scalap-2.10.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-compiler">
+			<revision name="2.10.4" status="release" pubdate="20140318174738" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" downloaded="false" searched="false" default="false" conf="compile, runtime(*), master(compile), runtime, compile(*), master" position="16">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2809" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scala-compiler/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.4/scala-compiler-2.10.4.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="scala-compiler" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2058278" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scala-compiler/srcs/scala-compiler-2.10.4-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-compiler/2.10.4/scala-compiler-2.10.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-reflect">
+			<revision name="2.10.4" status="release" pubdate="20140318174707" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), master(compile), runtime, compile(*), master" position="24">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html    "/>
+				<metadata-artifact status="no" details="" size="2647" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scala-reflect/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.2.0-SNAPSHOT" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/"/>
+				<artifacts>
+					<artifact name="scala-reflect" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="434883" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scala-reflect/srcs/scala-reflect-2.10.4-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-reflect/2.10.4/scala-reflect-2.10.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.scala-lang" name="scala-library">
+			<revision name="2.10.4" status="release" pubdate="20140318174629" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.scala-lang.org/" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), master(compile), runtime, default(compile), compile(*), master" position="21">
+				<license name="BSD-like" url="http://www.scala-lang.org/downloads/license.html          "/>
+				<metadata-artifact status="no" details="" size="2487" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scala-library/ivy-2.10.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.10.4" rev-constraint-default="2.10.4" rev-constraint-dynamic="2.10.4" callerrev="0.2.0-SNAPSHOT" extra-info.apiURL="http://www.scala-lang.org/api/2.10.4/"/>
+				<artifacts>
+					<artifact name="scala-library" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1062421" time="0" location="/Users/zhanghan/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.10.4-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.10.4/scala-library-2.10.4-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="log4j" name="log4j">
+			<revision name="1.2.17" status="release" pubdate="20120526054339" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://logging.apache.org/log4j/1.2/" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="9">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3514" time="0" location="/Users/zhanghan/.ivy2/cache/log4j/log4j/ivy-1.2.17.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="1.2.17" rev-constraint-default="1.2.17" rev-constraint-dynamic="1.2.17" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="log4j" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="481200" time="0" location="/Users/zhanghan/.ivy2/cache/log4j/log4j/srcs/log4j-1.2.17-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/log4j/log4j/1.2.17/log4j-1.2.17-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-remote_2.10">
+			<revision name="2.2.3" status="release" pubdate="20131023043831" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="8">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3755" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/ivy-2.2.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.10/2.2.3/akka-remote_2.10-2.2.3.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.2.3" rev-constraint-default="2.2.3" rev-constraint-dynamic="2.2.3" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-remote_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="129040" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-remote_2.10/srcs/akka-remote_2.10-2.2.3-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-remote_2.10/2.2.3/akka-remote_2.10-2.2.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.uncommons.maths" name="uncommons-maths">
+			<revision name="1.2.2a" status="release" pubdate="20110408095605" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://maths.uncommons.org/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="13">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.html"/>
+				<metadata-artifact status="no" details="" size="2738" time="0" location="/Users/zhanghan/.ivy2/cache/org.uncommons.maths/uncommons-maths/ivy-1.2.2a.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/uncommons/maths/uncommons-maths/1.2.2a/uncommons-maths-1.2.2a.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="1.2.2a" rev-constraint-default="1.2.2a" rev-constraint-dynamic="1.2.2a" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="uncommons-maths" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="61093" time="0" location="/Users/zhanghan/.ivy2/cache/org.uncommons.maths/uncommons-maths/srcs/uncommons-maths-1.2.2a-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/uncommons/maths/uncommons-maths/1.2.2a/uncommons-maths-1.2.2a-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.google.protobuf" name="protobuf-java">
+			<revision name="2.4.1" status="release" pubdate="20110706153342" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://code.google.com/p/protobuf" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="10">
+				<license name="New BSD license" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="2948" time="0" location="/Users/zhanghan/.ivy2/cache/com.google.protobuf/protobuf-java/ivy-2.4.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.4.1" rev-constraint-default="2.4.1" rev-constraint-dynamic="2.4.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="protobuf-java" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="200142" time="0" location="/Users/zhanghan/.ivy2/cache/com.google.protobuf/protobuf-java/srcs/protobuf-java-2.4.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/google/protobuf/protobuf-java/2.4.1/protobuf-java-2.4.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="io.netty" name="netty">
+			<revision name="3.6.6.Final" status="release" pubdate="20130515022624" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://netty.io/" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="29">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="6425" time="0" location="/Users/zhanghan/.ivy2/cache/io.netty/netty/ivy-3.6.6.Final.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/io/netty/netty/3.6.6.Final/netty-3.6.6.Final.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="3.6.6.Final" rev-constraint-default="3.6.6.Final" rev-constraint-dynamic="3.6.6.Final" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="netty" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="1065495" time="0" location="/Users/zhanghan/.ivy2/cache/io.netty/netty/srcs/netty-3.6.6.Final-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/io/netty/netty/3.6.6.Final/netty-3.6.6.Final-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.fusesource" name="sigar">
+			<revision name="1.6.4" status="release" pubdate="20110322150456" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="7">
+				<metadata-artifact status="no" details="" size="2973" time="0" location="/Users/zhanghan/.ivy2/cache/org.fusesource/sigar/ivy-1.6.4.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/fusesource/sigar/1.6.4/sigar-1.6.4.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="1.6.4" rev-constraint-default="1.6.4" rev-constraint-dynamic="1.6.4" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="sigar" type="jar" ext="jar" extra-classifier="" status="no" details="" size="428580" time="0" location="/Users/zhanghan/.ivy2/cache/org.fusesource/sigar/jars/sigar-1.6.4.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/fusesource/sigar/1.6.4/sigar-1.6.4.jar"/>
+					</artifact>
+					<artifact name="sigar" type="jar" ext="jar" extra-classifier="native" status="no" details="" size="375188" time="0" location="/Users/zhanghan/.ivy2/cache/org.fusesource/sigar/jars/sigar-1.6.4-native.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/fusesource/sigar/1.6.4/sigar-1.6.4-native.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-slf4j_2.10">
+			<revision name="2.2.3" status="release" pubdate="20131023043726" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="6">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="3029" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/ivy-2.2.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-slf4j_2.10/2.2.3/akka-slf4j_2.10-2.2.3.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.2.3" rev-constraint-default="2.2.3" rev-constraint-dynamic="2.2.3" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-slf4j_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="2335" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-slf4j_2.10/srcs/akka-slf4j_2.10-2.2.3-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-slf4j_2.10/2.2.3/akka-slf4j_2.10-2.2.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.google.guava" name="guava">
+			<revision name="11.0.1" status="release" pubdate="20120109133212" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="4">
+				<metadata-artifact status="no" details="" size="3835" time="0" location="/Users/zhanghan/.ivy2/cache/com.google.guava/guava/ivy-11.0.1.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/google/guava/guava/11.0.1/guava-11.0.1.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="11.0.1" rev-constraint-default="11.0.1" rev-constraint-dynamic="11.0.1" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="guava" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="944369" time="0" location="/Users/zhanghan/.ivy2/cache/com.google.guava/guava/srcs/guava-11.0.1-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/google/guava/guava/11.0.1/guava-11.0.1-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe.akka" name="akka-actor_2.10">
+			<revision name="2.2.3" status="release" pubdate="20131023043548" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://akka.io" downloaded="false" searched="false" default="false" conf="default, master(*), compile, runtime(*), runtime, default(compile), compile(*), master" position="3">
+				<license name="Apache 2" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="no" details="" size="2638" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/ivy-2.2.3.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.2.3/akka-actor_2.10-2.2.3.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="2.2.3" rev-constraint-default="2.2.3" rev-constraint-dynamic="2.2.3" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="akka-actor_2.10" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="321821" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe.akka/akka-actor_2.10/srcs/akka-actor_2.10-2.2.3-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/typesafe/akka/akka-actor_2.10/2.2.3/akka-actor_2.10-2.2.3-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="com.typesafe" name="config">
+			<revision name="1.0.2" status="release" pubdate="20130703090814" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/typesafehub/config" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="5">
+				<license name="Apache License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"/>
+				<metadata-artifact status="no" details="" size="2723" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe/config/ivy-1.0.2.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/com/typesafe/config/1.0.2/config-1.0.2.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="1.0.2" rev-constraint-default="1.0.2" rev-constraint-dynamic="1.0.2" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="config" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="126063" time="0" location="/Users/zhanghan/.ivy2/cache/com.typesafe/config/srcs/config-1.0.2-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/com/typesafe/config/1.0.2/config-1.0.2-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-server">
+			<revision name="8.1.14.v20131031" status="release" pubdate="20131031114113" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
+				<metadata-artifact status="no" details="" size="9211" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-server/ivy-8.1.14.v20131031.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.14.v20131031/jetty-server-8.1.14.v20131031.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="8.1.14.v20131031" rev-constraint-default="8.1.14.v20131031" rev-constraint-dynamic="8.1.14.v20131031" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jetty-server" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="226913" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-server/srcs/jetty-server-8.1.14.v20131031-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-server/8.1.14.v20131031/jetty-server-8.1.14.v20131031-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-http">
+			<revision name="8.1.14.v20131031" status="release" pubdate="20131031113713" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="17">
+				<metadata-artifact status="no" details="" size="8668" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-http/ivy-8.1.14.v20131031.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/8.1.14.v20131031/jetty-http-8.1.14.v20131031.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="8.1.14.v20131031" rev-constraint-default="8.1.14.v20131031" rev-constraint-dynamic="8.1.14.v20131031" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jetty-http" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="67328" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-http/srcs/jetty-http-8.1.14.v20131031-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-http/8.1.14.v20131031/jetty-http-8.1.14.v20131031-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-io">
+			<revision name="8.1.14.v20131031" status="release" pubdate="20131031113655" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="2">
+				<metadata-artifact status="no" details="" size="8530" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-io/ivy-8.1.14.v20131031.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/8.1.14.v20131031/jetty-io-8.1.14.v20131031.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="8.1.14.v20131031" rev-constraint-default="8.1.14.v20131031" rev-constraint-dynamic="8.1.14.v20131031" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jetty-io" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="69104" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-io/srcs/jetty-io-8.1.14.v20131031-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-io/8.1.14.v20131031/jetty-io-8.1.14.v20131031-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-continuation">
+			<revision name="8.1.14.v20131031" status="release" pubdate="20131031113728" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="11">
+				<metadata-artifact status="no" details="" size="8623" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-continuation/ivy-8.1.14.v20131031.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-continuation/8.1.14.v20131031/jetty-continuation-8.1.14.v20131031.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="8.1.14.v20131031" rev-constraint-default="8.1.14.v20131031" rev-constraint-dynamic="8.1.14.v20131031" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jetty-continuation" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="17548" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-continuation/srcs/jetty-continuation-8.1.14.v20131031-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-continuation/8.1.14.v20131031/jetty-continuation-8.1.14.v20131031-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty" name="jetty-util">
+			<revision name="8.1.14.v20131031" status="release" pubdate="20131031113557" resolver="sbt-chain" artresolver="sbt-chain" homepage="http://www.eclipse.org/jetty" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="0">
+				<metadata-artifact status="no" details="" size="8894" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-util/ivy-8.1.14.v20131031.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/8.1.14.v20131031/jetty-util-8.1.14.v20131031.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="8.1.14.v20131031" rev-constraint-default="8.1.14.v20131031" rev-constraint-dynamic="8.1.14.v20131031" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="jetty-util" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="196468" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty/jetty-util/srcs/jetty-util-8.1.14.v20131031-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/jetty-util/8.1.14.v20131031/jetty-util-8.1.14.v20131031-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+		<module organisation="org.eclipse.jetty.orbit" name="javax.servlet">
+			<revision name="3.0.0.v201112011016" status="release" pubdate="20111207144915" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="22">
+				<metadata-artifact status="no" details="" size="3028" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty.orbit/javax.servlet/ivy-3.0.0.v201112011016.xml" searched="false" origin-is-local="false" origin-location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016.pom"/>
+				<caller organisation="net.Yosemite" name="yosemite-core$sources_2.10" conf="test, compile, runtime" rev="3.0.0.v201112011016" rev-constraint-default="3.0.0.v201112011016" rev-constraint-dynamic="3.0.0.v201112011016" callerrev="0.2.0-SNAPSHOT"/>
+				<artifacts>
+					<artifact name="javax.servlet" type="src" ext="jar" extra-classifier="sources" status="no" details="" size="329333" time="0" location="/Users/zhanghan/.ivy2/cache/org.eclipse.jetty.orbit/javax.servlet/srcs/javax.servlet-3.0.0.v201112011016-sources.jar">
+						<origin-location is-local="false" location="http://repo1.maven.org/maven2/org/eclipse/jetty/orbit/javax.servlet/3.0.0.v201112011016/javax.servlet-3.0.0.v201112011016-sources.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
+	</dependencies>
+</ivy-report>
