@@ -10,6 +10,9 @@ import akka.actor.ActorRef
 /**
   * Created by zhanghan on 17/4/6.
   */
+
+
+
 private [Yosemite] class JobInfo(var startTime:Long, var id:String,var desc:JobDescription,
                                 var starter:SlaveInfo,val submiteTime:Date,val actor:ActorRef) {
 

@@ -5,13 +5,17 @@ package Yosemite.framework.master
 
 import java.util.concurrent.ConcurrentHashMap
 
-import Yosemite.framework.slave.SlaveInfo
+import Yosemite.framework.slave.{SlaveInfo, startSlave}
 import Yosemite.{Logging, YosemiteException}
-import Yosemite.framework.{RegisterJob, RegisterSlave}
+import Yosemite.framework._
 import Yosemite.utils.AkkaUtils
-import akka.actor.{Actor, ActorSystem, Props}
+import akka.actor.{Actor, ActorRef, ActorSystem, Address, Props}
 import akka.remote.RemotingLifecycleEvent
 import akka.routing.RoundRobinRouter
+import java.util.Date
+import java.util.concurrent.atomic.AtomicInteger
+
+import scala.collection.mutable.ArrayBuffer
 
 
 // define the communication system of the master
@@ -24,6 +28,30 @@ private[Yosemite] class Master(systemName:String,actorName:String, hostip:String
   var SlaveId = new ConcurrentHashMap[String,SlaveInfo]
 
   def now() =System.currentTimeMillis()
+
+  var nextJobNumber = new AtomicInteger()
+  val idToJob = new ConcurrentHashMap[String, JobInfo]()
+  val completedJobInfo = new ArrayBuffer[JobInfo]
+
+
+
+  var nextSlaveNumber = new AtomicInteger()
+  val idToSlave = new ConcurrentHashMap[String, SlaveInfo]
+
+  val actorToSlave = new ConcurrentHashMap[ActorRef, SlaveInfo]
+  val addressToSlave = new ConcurrentHashMap[Address, SlaveInfo]
+  val hostToSlave = new ConcurrentHashMap[String, SlaveInfo]
+
+
+
+  /**
+    * Generate a new Job ID given a Job's submission date
+    */
+  def newJobId(submitDate: Date): String = {
+    "Job-%06d".format(nextJobNumber.getAndIncrement())
+  }
+
+
 
   def start():(ActorSystem,Int) ={
     val (actorSystem, boundPort) = AkkaUtils.createActorSystem(systemName, hostip, port)
@@ -38,23 +66,103 @@ private[Yosemite] class Master(systemName:String,actorName:String, hostip:String
 
   }
 
+
+
   private[Yosemite] class MasterActor(hostip:String,
                                       boundPort:Int) extends Actor with Logging{
 
     val publicaddress: String =hostip
 
 
+    /**
+      * Generate a new coflow ID given a coflow's submission date
+      */
+    def newJobId(submitDate: Date): String = {
+      "Job-%06d".format(nextJobNumber.getAndIncrement())
+    }
+
+
+
+    // Method will be called, when
+    def addSlave(Slave:String,IP:String,Port:Int,actor:ActorRef):SlaveInfo={
+      val currentsender=sender
+      val startTime=new Date(now)
+      logInfo("register slave %s@%s:%d".format(Slave,IP,Port))
+      val slave =new SlaveInfo(now,Slave,IP,Port,actor)
+      idToSlave.put(slave.id, slave)
+      slave
+    }
+
+    def addJob(slave:SlaveInfo,jobdesc:JobDescription,actor:ActorRef): JobInfo = {
+      //idToJob.put(jobdesc.jobid,jobdesc)
+      val now = System.currentTimeMillis()
+      val date = new Date(now)
+      val jobinfo = new JobInfo(now, newJobId(date), jobdesc, slave, date, actor)
+      idToJob.put(jobinfo.id, jobinfo)
+      // Update its parent client
+      slave.addJob(jobinfo)
+      jobinfo
+    }
+
+
+
     override def receive = {
 
       // register the slave
-    case RegisterSlave(id,ip,slavePort)=>{
-      logInfo(id+" "+ip+" "+slavePort)
+    case RegisterSlave(id,ip,slavePort)=> {
+      logInfo("receive slave information: "+id)
+      val currentSender = sender
+
+      // check if the slave has already been registered
+      if (idToSlave.containsKey(id)){
+        // register the slave
+        logInfo("register slave fail"+id)
+        currentSender ! RegisterSlaveFailed("Duplitcate Slave ID")
+      }
+      else{
+        // add the slave into register slave hashtable
+        val slave = addSlave(id,ip,slavePort,currentSender)
+        currentSender ! RegisteredSlave(slave.id,"http://"+ip+":"+slavePort)
+      }
+    }
+
+
+    case RegisterJob(slaveid,jobDescription)=>{
+
       val currentSender=sender
-      currentSender ! "Duplicate slave ID"
+      val st=now
+
+      logTrace("Registering job "+jobDescription.jobid)
+      val slave=idToSlave.get(slaveid)
+
+      if(slave==null){
+        // send fail information to slave
+        currentSender ! RegisterJobFailed("Invalid clientId " + slaveid)
+      }
+      else{
+        // send success information to slave
+        val jobinfo=addJob(slave,jobDescription,currentSender)
+
+        // if registered successfully, sends the information to the slaveactor
+        val slaveurl="Yosemite://"+slave.IP+":"+slave.Port
+        val slaveactor=AkkaUtils.getActorRef(startSlave.toAkkaUrl(slaveurl),context)
+
+        // sends the information back to the slave
+        slaveactor ! RegisteredJob(jobinfo.id)
+        logInfo("Registered job "+jobinfo.id+" in " +(now - st) + " milliseconds")
       }
 
-    case RegisterJob(id,jobDescription)=>{
-      logInfo("register the job "+jobDescription.toString)
+    }
+
+
+    case AddFile(filedesc)=>{
+      logInfo("receive file information"+filedesc.toString)
+      sender ! true
+    }
+
+
+    case _=>{
+      logInfo("wrong message")
     }
 
     }

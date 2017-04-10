@@ -81,7 +81,17 @@ private[Yosemite] object AkkaUtils {
 
             classes = [
               "Yosemite.framework.RegisterSlave",
+              "Yosemite.framework.AddFile",
               "Yosemite.framework.RegisterJob",
+              "Yosemite.framework.RegisteredJob",
+              "Yosemite.framework.RegisterJobFailed",
+              "Yosemite.framework.RegisterSlaveFailed",
+              "Yosemite.framework.RegisteredSlave",
+              "Yosemite.framework.JobDescription",
+              "Yosemite.framework.DataIdentifier",
+              "Yosemite.framework.FlowDescription",
+              "Yosemite.framework.FileDescription",
+              "Yosemite.framework.DataType$",
               "scala.collection.immutable.Map$Map1",
               "scala.collection.immutable.Map$Map2",
               "scala.collection.immutable.Map$Map3",

@@ -53,5 +53,5 @@ private [Yosemite] class FlowInfo(val flowdesc: FlowDescription) {
 
 
 
-  override def toString: String = "flow information("+flowdesc.src+" "+flowdesc.srcPort+" "+flowdesc.dst+" "+flowdesc.dstPort+" "+bytesLeft+")"
+  override def toString: String = "flow information("+flowdesc.src+" "+flowdesc.srcPort+")"
 }

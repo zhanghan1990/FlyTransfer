@@ -6,11 +6,11 @@ package Yosemite.framework
 
 /**
   * job description used to describe the job
-  * @param jobName: job's name
+  * @param jobid: job's name
   * @param width: width of the job
-  * @param length: maxlength of the job
+  * @param weight: weight of the job
   */
-class JobDescription(var jobName:String, var width:Int,var length:Int) extends Serializable{
-  override def toString: String ="JobName:"+jobName+" width:"+width+" length:"+length
+class JobDescription(var jobid:String, var width:Int,var weight:Double =1.0) extends Serializable{
+  override def toString: String =" "+jobid+","+width+","+weight
 }
 

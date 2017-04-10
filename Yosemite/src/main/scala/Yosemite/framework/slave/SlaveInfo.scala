@@ -1,6 +1,6 @@
 package Yosemite.framework.slave
 
-import Yosemite.framework.JobDescription
+import Yosemite.framework.master.JobInfo
 import akka.actor.ActorRef
 
 import scala.collection.immutable.HashSet
@@ -13,7 +13,7 @@ import scala.collection.immutable.HashSet
 private [Yosemite] class SlaveInfo(val startTime:Long,val id:String,val IP: String,
                                   val Port:Int, val actor: ActorRef) {
 
-  var Jobs= new HashSet[JobDescription]
+  var Jobs= new HashSet[JobInfo]
   var endTime = -1L
 
   def markEndTime(){
@@ -29,8 +29,8 @@ private [Yosemite] class SlaveInfo(val startTime:Long,val id:String,val IP: Stri
     }
   }
 
-  def addJob(jobDescription: JobDescription)={
-    Jobs+=jobDescription
+  def addJob(jobinfo: JobInfo)={
+    Jobs+=jobinfo
   }
 
   override def toString: String = "startTime:"+startTime+" id"+id+" IP"+IP+" Port"+Port
