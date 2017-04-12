@@ -36,3 +36,9 @@ private[Yosemite] case class UnregisterJob(id:String) extends FrameworkMessage
 
 // File add sent from slave to master
 private[Yosemite] case class AddFile(desc:FileDescription) extends FrameworkMessage
+
+// file get sent from master to slave
+private[Yosemite] case class GetFILE(fileId:String,jobId:String) extends FrameworkMessage
+
+// flow description sent from master to the slave nodes
+private[Yosemite] case class GetFlowDesc(flowDesc: Array[FlowDescription]) extends FrameworkMessage

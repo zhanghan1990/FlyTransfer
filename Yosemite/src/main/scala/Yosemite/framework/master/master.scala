@@ -3,17 +3,17 @@
   */
 package Yosemite.framework.master
 
+import java.util.Date
 import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.atomic.AtomicInteger
 
-import Yosemite.framework.slave.{SlaveInfo, startSlave}
-import Yosemite.{Logging, YosemiteException}
 import Yosemite.framework._
+import Yosemite.framework.slave.{SlaveInfo, startSlave}
 import Yosemite.utils.AkkaUtils
+import Yosemite.{Logging, YosemiteException}
 import akka.actor.{Actor, ActorRef, ActorSystem, Address, Props}
 import akka.remote.RemotingLifecycleEvent
 import akka.routing.RoundRobinRouter
-import java.util.Date
-import java.util.concurrent.atomic.AtomicInteger
 
 import scala.collection.mutable.ArrayBuffer
 
@@ -104,7 +104,14 @@ private[Yosemite] class Master(systemName:String,actorName:String, hostip:String
       jobinfo
     }
 
-
+    def handleGetFile(fileId:String,jobId:String,actor:ActorRef): Unit ={
+      val job=idToJob.get(jobId)
+      job.getFlowInfo(fileId) match{
+        case Some(flowInfo)=>
+          logInfo(flowInfo.sourceip)
+//          actor ! Some(GetFlowDesc(flowInfo.dstinationslave))
+      }
+    }
 
     override def receive = {
 
@@ -129,7 +136,7 @@ private[Yosemite] class Master(systemName:String,actorName:String, hostip:String
 
     case RegisterJob(slaveid,jobDescription)=>{
 
-      val currentSender=sender
+      val currentSender = sender
       val st=now
 
       logTrace("Registering job "+jobDescription.jobid)
@@ -148,7 +155,7 @@ private[Yosemite] class Master(systemName:String,actorName:String, hostip:String
         val slaveactor=AkkaUtils.getActorRef(startSlave.toAkkaUrl(slaveurl),context)
 
         // sends the information back to the slave
-        slaveactor ! RegisteredJob(jobinfo.id)
+        slaveactor ! RegisteredJob(jobinfo.desc.jobname+" "+jobinfo.id)
         logInfo("Registered job "+jobinfo.id+" in " +(now - st) + " milliseconds")
       }
 
@@ -156,11 +163,28 @@ private[Yosemite] class Master(systemName:String,actorName:String, hostip:String
 
 
     case AddFile(filedesc)=>{
+
+      val currentSender=sender
+      logInfo(filedesc.toString)
+      val job=idToJob.get(filedesc._jobid)
+
+//      var t  = idToJob.keySet().iterator()
+//      while(t.hasNext){
+//        var k=t.next()
+//        println(k)
+//      }
+
+      assert(job!=null)
+      val st= now()
+      job.addFlow(filedesc)
       logInfo("receive file information"+filedesc.toString)
       sender ! true
     }
 
-
+    case GetFILE(fileId,jobId)=>
+      logInfo("fileid"+fileId+" jobid"+jobId)
+      val currentSender = sender
+      //  Future()
     case _=>{
       logInfo("wrong message")
     }

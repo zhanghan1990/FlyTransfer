@@ -11,8 +11,6 @@ private[Yosemite] case class DataIdentifier(
                                           jobId: String)
 
 
-
-
 private [Yosemite] class FlowDescription(val id:String, val jobid:String, val datatype:DataType.DataType,
                                         val size:Long,val src:String, val srcPort:Int)
   extends Serializable{
@@ -25,9 +23,7 @@ private [Yosemite] class FlowDescription(val id:String, val jobid:String, val da
 
 
 
-
-
 private[Yosemite] class FileDescription(val fid:String,val filepath:String,val _jobid:String,val _datatype:DataType.DataType,val _size:Long,val _src:String,val _srcPort:Int)
   extends FlowDescription(fid,_jobid,_datatype,_size,_src,_srcPort){
-  override def toString: String = "file(id: "+fid+" filepath "+filepath+" size"+size+")"
+  override def toString: String = "file(id: "+fid+" filepath "+filepath+" jobid "+_jobid
 }

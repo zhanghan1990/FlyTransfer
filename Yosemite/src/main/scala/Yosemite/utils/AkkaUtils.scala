@@ -91,6 +91,8 @@ private[Yosemite] object AkkaUtils {
               "Yosemite.framework.DataIdentifier",
               "Yosemite.framework.FlowDescription",
               "Yosemite.framework.FileDescription",
+              "Yosemite.framework.GetFILE",
+              "Yosemite.framework.GetFlowDesc",
               "Yosemite.framework.DataType$",
               "scala.collection.immutable.Map$Map1",
               "scala.collection.immutable.Map$Map2",

@@ -2,6 +2,7 @@ package Yosemite.framework.slave
 
 import java.io.File
 import java.text.SimpleDateFormat
+import java.util.concurrent.ConcurrentHashMap
 
 import Yosemite.framework.master.startMaster
 import Yosemite.framework.{JobDescription, _}
@@ -12,7 +13,7 @@ import akka.remote.RemotingLifecycleEvent
 
 /**
   * Created by zhanghan on 17/4/3.
-  * this file implements the slave action
+  * this file implementation of  the slave
   */
 
 
@@ -22,9 +23,16 @@ private[Yosemite] object startSlave extends  Logging{
   var master: ActorRef = null
   var slaveIdentify:String=null
 
+
   val slaveRegisterLock = new Object
+  val NameToJob = new ConcurrentHashMap[String, String]()
 
-
+//  val jobRegisterLock = new Object
+//
+//  //wait until the job has been registered
+//  private def waitForJobReigstration={
+//
+//  }
 
   // Wait until the client has been registered
   private def waitForRegistration = {
@@ -35,6 +43,9 @@ private[Yosemite] object startSlave extends  Logging{
       }
     }
   }
+
+
+
 
   class SlaveActor(ip:String,port:Int,webUiPort: Int,
                                      commPort: Int,
@@ -79,7 +90,9 @@ private[Yosemite] object startSlave extends  Logging{
         logInfo("receive slave information: "+slaveInfo)
 
       case RegisteredJob(message)=>
-        logInfo(message)
+        var list=message.split(" ")
+        logInfo("job"+list(0)+" id"+list(1))
+        NameToJob.put(list(0),list(1))
 
       case _=>
         logError("receive error message please check the syetem")
@@ -192,9 +205,15 @@ private[Yosemite] object startSlave extends  Logging{
 
     val (actorSystem, _)=startSystemAndActor(ip,port,1111,1111,masterurl,"SDSD")
 
-    RegisterFileJob("/Users/zhanghan/Documents/文件资料/coflow/Yosemite/run",2,1.2)
+    RegisterFileJob("TEST","ddd",2,1.2)
 
-    Put("/Users/zhanghan/Documents/文件资料/coflow/Yosemite/run","ddd",2)
+    val SLEEP_MS1 = 5000
+
+    Thread.sleep(SLEEP_MS1)
+
+    println("Registered coflow " + NameToJob.get("TEST") + ". Now sleeping for " + SLEEP_MS1 + " milliseconds.")
+
+    PUTFILE("/Users/zhanghan/Documents/文件资料/coflow/Yosemite/run",NameToJob.get("TEST"),"DDD")
 
     actorSystem.awaitTermination()
   }
@@ -202,9 +221,9 @@ private[Yosemite] object startSlave extends  Logging{
 
   //@API
   // Register the FileJob, tell the master the job description
-  def RegisterFileJob(FileUrl:String,width:Int,weight:Double): Unit ={
+  def RegisterFileJob(jobName:String,jobId:String,width:Int,weight:Double): Unit ={
     //construct the job description
-    var jobdesc:JobDescription= new JobDescription(FileUrl,width,weight)
+    var jobdesc:JobDescription= new JobDescription(jobName,jobId,width,weight)
     Reigster(generateSlaveId(ip),jobdesc)
   }
 
@@ -221,31 +240,40 @@ private[Yosemite] object startSlave extends  Logging{
 
   // @API
   // PUT: tell the master of file description
-  def Put(FilePath:String,JobId:String,NumReceivers:Long) {
+  def PUTFILE(filePath:String,jobId:String,fileId:String) {
 
     // This information is useful, as the client may be null, if the put operation is too fast
     waitForRegistration
-
-
-    var file = new File(FilePath)
+    var file = new File(filePath)
     var filesize:Long=0
     if(file.exists()==false){
       // for file does not exit
-      logWarning("file"+FilePath+"does not exit")
+      logWarning("file"+filePath+"does not exit")
       System.exit(1)
     }
     else{
       filesize=file.length()
     }
-
     // We use file path to represent filepath now
-    var desc=new FileDescription(FilePath,FilePath,JobId,DataType.ONDISK,filesize,ip,port)
-
+    var desc=new FileDescription(fileId,filePath,jobId,DataType.ONDISK,filesize,ip,port)
     // tell me, the file description, then I give the description to master
     master !AddFile(desc)
-
   }
 
+  /**
+    * API: GETFILE
+    * GET FILE FROM ACTOR
+    * @param fileId: file identifier
+    * @param jodId:  job identifier
+    * @return
+    */
+
+  def GETFILE(fileId:String,jodId:String) {
+    waitForRegistration
+    var flowDesc:FlowDescription=null
+    val gotFlowDesc = AkkaUtils.askActorWithReply[Option[GetFlowDesc]](master, GetFILE(fileId, jodId))
+
+  }
 
   def toAkkaUrl(slaveUrl:String):String={
     slaveUrl match{
