@@ -643,7 +643,7 @@ class VarysClient(
         }
 
       case RejectedCoflow(coflowId, rejectMessage) =>
-        logDebug("Coflow " + coflowId + " has been rejected! " + rejectMessage)
+        logInfo("Coflow " + coflowId + " has been rejected! " + rejectMessage)
 
         // Let the client know
         if (listener != null) {

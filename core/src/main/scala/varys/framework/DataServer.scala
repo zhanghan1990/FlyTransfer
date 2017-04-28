@@ -124,7 +124,7 @@ private[varys] class DataServer(
 
   var serverSocket: ServerSocket = null
   try {
-    serverSocket = new ServerSocket(commPort, 256)
+    serverSocket = new ServerSocket(commPort, 1024)
 
     if (isDNS == false) {
       logInfo("Created DataServer at %s:%d".format(Utils.localIpAddress, getCommPort))
@@ -151,7 +151,6 @@ private[varys] class DataServer(
   }
 
   def getCommPort = {
-    println(serverSocket)
     serverSocket.getLocalPort()
   }
 }

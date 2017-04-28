@@ -20,4 +20,4 @@
 #
 # KNOWN ISSUE(S)
 # - VARYS_MASTER_IP must be set manually for now
-VARYS_MASTER_IP=10.0.0.31
+VARYS_MASTER_IP=172.17.0.10

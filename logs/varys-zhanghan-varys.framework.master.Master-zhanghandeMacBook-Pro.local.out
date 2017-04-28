@@ -42,3 +42,29 @@ Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon
 akka.remote.EndpointAssociationException: Association failed with [akka.tcp://varysClient@10.0.0.31:61552]
 Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:61552
 ]
+17/04/27 22:17:01.646 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] <- [akka.tcp://varysSlave@10.0.0.31:61549]: Error [Shut down address: akka.tcp://varysSlave@10.0.0.31:61549] [
+akka.remote.ShutDownAssociation: Shut down address: akka.tcp://varysSlave@10.0.0.31:61549
+Caused by: akka.remote.transport.Transport$InvalidAssociationException: The remote system terminated the association because it is shutting down.
+]
+17/04/27 22:17:01.661 ERROR ActorSystemImpl: Uncaught fatal error from thread [varysMaster-akka.actor.default-dispatcher-3] shutting down ActorSystem [varysMaster]
+java.lang.NoClassDefFoundError: varys/framework/master/Master$MasterActor$$anonfun$removeSlave$1
+	at varys.framework.master.Master$MasterActor.removeSlave(Master.scala:416)
+	at varys.framework.master.Master$MasterActor$$anonfun$receive$1.applyOrElse(Master.scala:202)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:498)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:456)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:237)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:219)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.ClassNotFoundException: varys.framework.master.Master$MasterActor$$anonfun$removeSlave$1
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	... 11 more

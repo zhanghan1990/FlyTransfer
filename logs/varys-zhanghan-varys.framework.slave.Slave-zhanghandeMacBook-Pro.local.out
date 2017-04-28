@@ -546,3 +546,196 @@ Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon
 17/04/27 22:14:41.363 INFO SlaveActor: 5430.0 5916.0
 17/04/27 22:14:42.364 INFO SlaveActor: 2766.0 3378.0
 17/04/27 22:14:43.364 INFO SlaveActor: 6444.0 1678.0
+17/04/27 22:14:44.364 INFO SlaveActor: 552.0 714.0
+17/04/27 22:14:45.363 INFO SlaveActor: 1426.0 3453.0
+17/04/27 22:14:46.364 INFO SlaveActor: 4624.0 972.0
+17/04/27 22:14:47.365 INFO SlaveActor: 552.0 618.0
+17/04/27 22:14:48.364 INFO SlaveActor: 941.0 1770.0
+17/04/27 22:14:49.363 INFO SlaveActor: 726.0 653.0
+17/04/27 22:14:50.363 INFO SlaveActor: 696.0 754.0
+17/04/27 22:14:51.365 INFO SlaveActor: 552.0 552.0
+17/04/27 22:14:52.363 INFO SlaveActor: 726.0 552.0
+17/04/27 22:14:53.366 INFO SlaveActor: 1353.0 1940.0
+17/04/27 22:14:54.363 INFO SlaveActor: 704.0 856.0
+17/04/27 22:14:55.365 INFO SlaveActor: 726.0 618.0
+17/04/27 22:14:56.364 INFO SlaveActor: 552.0 552.0
+17/04/27 22:14:57.363 INFO SlaveActor: 5279.0 1920.0
+17/04/27 22:14:58.366 INFO SlaveActor: 16318.0 229246.0
+17/04/27 22:14:59.364 INFO SlaveActor: 630.0 638.0
+17/04/27 22:15:00.364 INFO SlaveActor: 1440.0 1490.0
+17/04/27 22:15:01.364 INFO SlaveActor: 726.0 606.0
+17/04/27 22:15:02.366 INFO SlaveActor: 552.0 552.0
+17/04/27 22:15:03.365 INFO SlaveActor: 552.0 552.0
+17/04/27 22:15:04.364 INFO SlaveActor: 1142.0 1376.0
+17/04/27 22:15:05.364 INFO SlaveActor: 9819.0 3778.0
+17/04/27 22:15:06.363 INFO SlaveActor: 1639.0 1571.0
+17/04/27 22:15:07.363 INFO SlaveActor: 726.0 552.0
+17/04/27 22:15:08.366 INFO SlaveActor: 552.0 552.0
+17/04/27 22:15:09.364 INFO SlaveActor: 552.0 552.0
+17/04/27 22:15:10.363 INFO SlaveActor: 868.0 726.0
+17/04/27 22:15:11.364 INFO SlaveActor: 552.0 606.0
+17/04/27 22:15:12.364 INFO SlaveActor: 7032.0 8536.0
+17/04/27 22:15:13.365 INFO SlaveActor: 6790.0 1904.0
+17/04/27 22:15:14.365 INFO SlaveActor: 552.0 714.0
+17/04/27 22:15:15.363 INFO SlaveActor: 552.0 684.0
+17/04/27 22:15:16.366 INFO SlaveActor: 836.0 988.0
+17/04/27 22:15:17.364 INFO SlaveActor: 552.0 618.0
+17/04/27 22:15:18.365 INFO SlaveActor: 1502.0 1634.0
+17/04/27 22:15:19.366 INFO SlaveActor: 726.0 684.0
+17/04/27 22:15:20.365 INFO SlaveActor: 1200.0 618.0
+17/04/27 22:15:21.364 INFO SlaveActor: 552.0 552.0
+17/04/27 22:15:22.364 INFO SlaveActor: 726.0 738.0
+17/04/27 22:15:23.366 INFO SlaveActor: 552.0 606.0
+17/04/27 22:15:24.364 INFO SlaveActor: 704.0 922.0
+17/04/27 22:15:25.364 INFO SlaveActor: 726.0 552.0
+17/04/27 22:15:26.364 INFO SlaveActor: 2647.0 3129.0
+17/04/27 22:15:27.365 INFO SlaveActor: 1406.0 1302.0
+17/04/27 22:15:28.365 INFO SlaveActor: 3284.0 1495.0
+17/04/27 22:15:29.363 INFO SlaveActor: 552.0 618.0
+17/04/27 22:15:30.364 INFO SlaveActor: 618.0 766.0
+17/04/27 22:15:31.365 INFO SlaveActor: 898.0 782.0
+17/04/27 22:15:32.364 INFO SlaveActor: 3183.0 1731.0
+17/04/27 22:15:33.365 INFO SlaveActor: 1016.0 1030.0
+17/04/27 22:15:34.364 INFO SlaveActor: 1531.0 2450.0
+17/04/27 22:15:35.364 INFO SlaveActor: 9379.0 3524.0
+17/04/27 22:15:36.363 INFO SlaveActor: 3488.0 4046.0
+17/04/27 22:15:37.365 INFO SlaveActor: 1809.0 1411.0
+17/04/27 22:15:38.363 INFO SlaveActor: 1620.0 1622.0
+17/04/27 22:15:39.365 INFO SlaveActor: 552.0 832.0
+17/04/27 22:15:40.363 INFO SlaveActor: 1305.0 876.0
+17/04/27 22:15:41.364 INFO SlaveActor: 4672.0 5806.0
+17/04/27 22:15:42.365 INFO SlaveActor: 3416.0 3606.0
+17/04/27 22:15:43.365 INFO SlaveActor: 6660.0 1798.0
+17/04/27 22:15:44.363 INFO SlaveActor: 552.0 886.0
+17/04/27 22:15:45.364 INFO SlaveActor: 618.0 618.0
+17/04/27 22:15:46.365 INFO SlaveActor: 1435.0 3317.0
+17/04/27 22:15:47.364 INFO SlaveActor: 5878.0 1258.0
+17/04/27 22:15:48.363 INFO SlaveActor: 552.0 552.0
+17/04/27 22:15:49.363 INFO SlaveActor: 2315.0 2949.0
+17/04/27 22:15:50.364 INFO SlaveActor: 1712.0 1291.0
+17/04/27 22:15:51.365 INFO SlaveActor: 756.0 696.0
+17/04/27 22:15:52.363 INFO SlaveActor: 726.0 552.0
+17/04/27 22:15:53.364 INFO SlaveActor: 964.0 1178.0
+17/04/27 22:15:54.364 INFO SlaveActor: 638.0 844.0
+17/04/27 22:15:55.364 INFO SlaveActor: 736.0 684.0
+17/04/27 22:15:56.364 INFO SlaveActor: 1115.0 1516.0
+17/04/27 22:15:57.363 INFO SlaveActor: 618.0 820.0
+17/04/27 22:15:58.365 INFO SlaveActor: 1568.0 1622.0
+17/04/27 22:15:59.364 INFO SlaveActor: 930.0 696.0
+17/04/27 22:16:00.365 INFO SlaveActor: 552.0 552.0
+17/04/27 22:16:01.364 INFO SlaveActor: 552.0 552.0
+17/04/27 22:16:02.365 INFO SlaveActor: 792.0 684.0
+17/04/27 22:16:03.363 INFO SlaveActor: 552.0 552.0
+17/04/27 22:16:04.363 INFO SlaveActor: 882.0 1232.0
+17/04/27 22:16:05.364 INFO SlaveActor: 9553.0 2934.0
+17/04/27 22:16:06.365 INFO SlaveActor: 1286.0 2071.0
+17/04/27 22:16:07.365 INFO SlaveActor: 2183.0 618.0
+17/04/27 22:16:08.364 INFO SlaveActor: 3299.0 1073.0
+17/04/27 22:16:09.366 INFO SlaveActor: 636.0 618.0
+17/04/27 22:16:10.364 INFO SlaveActor: 5072.0 1709.0
+17/04/27 22:16:11.365 INFO SlaveActor: 12729.0 8056.0
+17/04/27 22:16:12.366 INFO SlaveActor: 5373.0 4796.0
+17/04/27 22:16:13.365 INFO SlaveActor: 3092.0 3898.0
+17/04/27 22:16:14.366 INFO SlaveActor: 6092.0 2764.0
+17/04/27 22:16:15.364 INFO SlaveActor: 1491.0 618.0
+17/04/27 22:16:16.363 INFO SlaveActor: 626.0 915.0
+17/04/27 22:16:17.365 INFO SlaveActor: 3093.0 3232.0
+17/04/27 22:16:18.363 INFO SlaveActor: 1862.0 1944.0
+17/04/27 22:16:19.364 INFO SlaveActor: 618.0 750.0
+17/04/27 22:16:20.363 INFO SlaveActor: 726.0 618.0
+17/04/27 22:16:21.364 INFO SlaveActor: 1200.0 552.0
+17/04/27 22:16:22.364 INFO SlaveActor: 552.0 618.0
+17/04/27 22:16:23.365 INFO SlaveActor: 726.0 684.0
+17/04/27 22:16:24.363 INFO SlaveActor: 552.0 630.0
+17/04/27 22:16:25.364 INFO SlaveActor: 844.0 1297.0
+17/04/27 22:16:26.363 INFO SlaveActor: 3512.0 3612.0
+17/04/27 22:16:27.364 INFO SlaveActor: 1108.0 1701.0
+17/04/27 22:16:28.364 INFO SlaveActor: 1126.0 780.0
+17/04/27 22:16:29.365 INFO SlaveActor: 886.0 1076.0
+17/04/27 22:16:30.364 INFO SlaveActor: 694.0 858.0
+17/04/27 22:16:31.365 INFO SlaveActor: 2838.0 2252.0
+17/04/27 22:16:32.364 INFO SlaveActor: 2301.0 2066.0
+17/04/27 22:16:33.364 INFO SlaveActor: 1665.0 1804.0
+17/04/27 22:16:34.364 INFO SlaveActor: 1298.0 1988.0
+17/04/27 22:16:35.365 INFO SlaveActor: 10091.0 4913.0
+17/04/27 22:16:36.366 INFO SlaveActor: 2566.0 2681.0
+17/04/27 22:16:37.364 INFO SlaveActor: 1225.0 1373.0
+17/04/27 22:16:38.364 INFO SlaveActor: 2084.0 2378.0
+17/04/27 22:16:39.364 INFO SlaveActor: 13660.0 1674.0
+17/04/27 22:16:40.365 INFO SlaveActor: 715.0 1001.0
+17/04/27 22:16:41.364 INFO SlaveActor: 1416.0 618.0
+17/04/27 22:16:42.365 INFO SlaveActor: 7895.0 7282.0
+17/04/27 22:16:43.363 INFO SlaveActor: 5529.0 3018.0
+17/04/27 22:16:44.365 INFO SlaveActor: 2402.0 2396.0
+17/04/27 22:16:45.365 INFO SlaveActor: 7598.0 6095.0
+17/04/27 22:16:46.363 INFO SlaveActor: 1367.0 918.0
+17/04/27 22:16:47.363 INFO SlaveActor: 1432.0 3318.0
+17/04/27 22:16:48.365 INFO SlaveActor: 4123.0 1945.0
+17/04/27 22:16:49.364 INFO SlaveActor: 6412.0 10024.0
+17/04/27 22:16:50.364 INFO SlaveActor: 25850.0 10892.0
+17/04/27 22:16:51.363 INFO SlaveActor: 21662.0 13903.0
+17/04/27 22:16:52.364 INFO SlaveActor: 14667.0 13525.0
+17/04/27 22:16:53.365 INFO SlaveActor: 14716.0 16590.0
+17/04/27 22:16:54.364 INFO SlaveActor: 3965.0 5779.0
+17/04/27 22:16:55.365 INFO SlaveActor: 2404.0 2392.0
+17/04/27 22:16:56.364 INFO SlaveActor: 5708.0 3194.0
+17/04/27 22:16:57.365 INFO SlaveActor: 2006.0 1549.0
+17/04/27 22:16:58.364 INFO SlaveActor: 6178.0 3367.0
+17/04/27 22:16:59.364 INFO SlaveActor: 70619.0 4226.0
+17/04/27 22:17:00.364 INFO SlaveActor: 88155.0 6319.0
+17/04/27 22:17:01.365 INFO SlaveActor: 27742.0 6546.0
+17/04/27 22:17:01.548 WARN AbstractHttpConnection: /
+java.lang.NoClassDefFoundError: varys/framework/SlaveState
+	at varys.framework.slave.ui.IndexPage.render(IndexPage.scala:46)
+	at varys.framework.slave.ui.SlaveWebUI$$anonfun$8.apply(SlaveWebUI.scala:56)
+	at varys.framework.slave.ui.SlaveWebUI$$anonfun$8.apply(SlaveWebUI.scala:56)
+	at varys.ui.JettyUtils$$anon$1.handle(JettyUtils.scala:61)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1088)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1024)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
+	at org.eclipse.jetty.server.handler.HandlerList.handle(HandlerList.java:52)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:116)
+	at org.eclipse.jetty.server.Server.handle(Server.java:370)
+	at org.eclipse.jetty.server.AbstractHttpConnection.handleRequest(AbstractHttpConnection.java:494)
+	at org.eclipse.jetty.server.AbstractHttpConnection.headerComplete(AbstractHttpConnection.java:971)
+	at org.eclipse.jetty.server.AbstractHttpConnection$RequestHandler.headerComplete(AbstractHttpConnection.java:1033)
+	at org.eclipse.jetty.http.HttpParser.parseNext(HttpParser.java:644)
+	at org.eclipse.jetty.http.HttpParser.parseAvailable(HttpParser.java:235)
+	at org.eclipse.jetty.server.AsyncHttpConnection.handle(AsyncHttpConnection.java:82)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint.handle(SelectChannelEndPoint.java:667)
+	at org.eclipse.jetty.io.nio.SelectChannelEndPoint$1.run(SelectChannelEndPoint.java:52)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.ClassNotFoundException: varys.framework.SlaveState
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	... 21 more
+17/04/27 22:17:01.548 ERROR ActorSystemImpl: Uncaught fatal error from thread [varysSlave-akka.actor.default-dispatcher-12] shutting down ActorSystem [varysSlave]
+java.lang.NoClassDefFoundError: varys/framework/SlaveState
+	at varys.framework.slave.SlaveActor$$anonfun$receive$1.applyOrElse(Slave.scala:138)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:498)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:456)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:237)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:219)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.lang.ClassNotFoundException: varys.framework.SlaveState
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:354)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:425)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
+	... 10 more
+17/04/27 22:17:01.689 INFO SlaveActor: 3417.0 3415.0
+[ERROR] [04/27/2017 22:17:01.690] [varysSlave-akka.actor.default-dispatcher-2] [akka.tcp://varysMaster@10.0.0.31:1606/user/Master] swallowing exception during message send (akka.remote.RemoteTransportExceptionNoStackTrace)
