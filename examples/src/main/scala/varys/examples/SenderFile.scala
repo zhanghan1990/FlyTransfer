@@ -1,10 +1,16 @@
 /**
   * Created by zhanghan on 17/4/24.
   */
-
 package varys.examples
 
 import java.io._
+import java.net._
+import java.util.concurrent.atomic.AtomicInteger
+
+import scala.collection.mutable.ArrayBuffer
+import scala.collection.JavaConversions._
+import scala.concurrent.duration._
+import scala.concurrent.{Future, Await, ExecutionContext}
 
 import varys.util.AkkaUtils
 import varys.{Logging, Utils}
@@ -12,18 +18,6 @@ import varys.framework.client._
 import varys.framework._
 
 private[varys] object SenderClientFile {
-
-  class TestListener extends ClientListener with Logging {
-    def connected(id: String) {
-      logInfo("Connected to master, got client ID " + id)
-    }
-
-    def disconnected() {
-      logInfo("Disconnected from master")
-      System.exit(0)
-    }
-  }
-
 
   def main(args: Array[String]) {
     if (args.length < 1) {
@@ -37,7 +31,7 @@ private[varys] object SenderClientFile {
     val LEN_BYTES = 1212121
 
     val listener = new TestListener
-    val client = new VarysClient("SenderClientFile", url, listener)
+    val client = new VarysClient("SenderClientFile", url, false, listener)
     client.start()
 
     val desc = new CoflowDescription("DEFAULT", CoflowType.DEFAULT, 1, LEN_BYTES)
@@ -50,6 +44,8 @@ private[varys] object SenderClientFile {
     val dir = "/tmp"
     val pathToFile = dir + "/" + FILE_NAME
 
+    val byteArr = Array.tabulate[Byte](LEN_BYTES)(_.toByte)
+    SenderClientFile.write(byteArr, pathToFile)
 
     client.putFile(FILE_NAME, pathToFile, coflowId, LEN_BYTES, 1)
     println("Put file[" + FILE_NAME + "] of " + LEN_BYTES + " bytes. Now waiting to die.")
@@ -57,5 +53,31 @@ private[varys] object SenderClientFile {
     // client.unregisterCoflow(coflowId)
 
     client.awaitTermination()
+  }
+
+  private def write(aInput: Array[Byte], aOutputFileName: String) {
+    try {
+      var output: OutputStream = null
+      try {
+        output = new BufferedOutputStream(new FileOutputStream(aOutputFileName))
+        output.write(aInput)
+      }
+      finally {
+        output.close()
+      }
+    } catch {
+      case e: Exception => {}
+    }
+  }
+
+  class TestListener extends ClientListener with Logging {
+    def connected(id: String) {
+      logInfo("Connected to master, got client ID " + id)
+    }
+
+    def disconnected() {
+      logInfo("Disconnected from master")
+      System.exit(0)
+    }
   }
 }

@@ -12,48 +12,34 @@ import scala.collection.mutable.{ArrayBuffer, HashMap, Map}
 import varys.framework.{FlowDescription, CoflowDescription}
 
 private[varys] class CoflowInfo(
-    val startTime: Long,
-    val id: String,
-    val desc: CoflowDescription,
-    val parentClient: ClientInfo,
-    val submitDate: Date,
-    val actor: ActorRef) {
-  
-  private var _prevState = CoflowState.WAITING
-  def prevState = _prevState
-  
-  private var _curState = CoflowState.WAITING
-  def curState = _curState
-  
-  def changeState(nextState: CoflowState.Value) {
-    _prevState = _curState
-    _curState = nextState
-  }
+                                 val startTime: Long,
+                                 val id: String,
+                                 val desc: CoflowDescription,
+                                 val parentClient: ClientInfo,
+                                 val submitDate: Date,
+                                 val actor: ActorRef) {
 
-  var origAlpha = 0.0
-  
-  var bytesLeft_ = new AtomicLong(0L)
-  def bytesLeft: Long = bytesLeft_.get()
-  
-  var readyTime = -1L
-  var endTime = -1L
-
-  // Data structure to keep track of total allocation of this coflow over time. Initialized with 0.0
-  var allocationOverTime = new ArrayBuffer[(Long, Double)]()
-  allocationOverTime += ((startTime, 0.0))
-  
   private val idToFlow = new ConcurrentHashMap[String, FlowInfo]()
-
-  private var _retryCount = 0
-  def retryCount = _retryCount
-
   private val numRegisteredFlows = new AtomicInteger(0)
   private val numCompletedFlows = new AtomicInteger(0)
+  var origAlpha = 0.0
+  var bytesLeft_ = new AtomicLong(0L)
+  var readyTime = -1L
+  var endTime = -1L
+  // Data structure to keep track of total allocation of this coflow over time. Initialized with 0.0
+  var allocationOverTime = new ArrayBuffer[(Long, Double)]()
+  private var _prevState = CoflowState.WAITING
+  private var _curState = CoflowState.WAITING
+  private var _retryCount = 0
+  allocationOverTime += ((startTime, 0.0))
+
+  def prevState = _prevState
+
+  def retryCount = _retryCount
 
   def numFlowsToRegister = desc.maxFlows - numRegisteredFlows.get
+
   def numFlowsToComplete = desc.maxFlows - numCompletedFlows.get
-  
-  def getFlows() = idToFlow.values.asScala.filter(_.isLive)
 
   def getFlowInfos(flowIds: Array[String]): Option[Array[FlowInfo]] = {
     val ret = flowIds.map(idToFlow.get(_))
@@ -72,8 +58,8 @@ private[varys] class CoflowInfo(
   def contains(flowId: String) = idToFlow.containsKey(flowId)
 
   /**
-   * Calculate remaining time based on remaining flow size
-   */ 
+    * Calculate remaining time based on remaining flow size
+    */
   def calcRemainingMillis(sBpsFree: Map[String, Double], rBpsFree: Map[String, Double]): Double = {
     val sBytes = new HashMap[String, Double]().withDefaultValue(0.0)
     val rBytes = new HashMap[String, Double]().withDefaultValue(0.0)
@@ -82,7 +68,7 @@ private[varys] class CoflowInfo(
       // FIXME: Assuming a single source and destination for each flow
       val src = flowInfo.source
       val dst = flowInfo.destClient.host
-      
+
       sBytes(src) = sBytes(src) + flowInfo.bytesLeft
       rBytes(dst) = rBytes(dst) + flowInfo.bytesLeft
     }
@@ -98,24 +84,6 @@ private[varys] class CoflowInfo(
     math.max(sBytes.values.max, rBytes.values.max) * 1000
   }
 
-  /**
-   * Calculating alpha for the coflow based on remaining flow size
-   */
-  def calcAlpha(): Double = {
-    val sBytes = new HashMap[String, Double]().withDefaultValue(0.0)
-    val rBytes = new HashMap[String, Double]().withDefaultValue(0.0)
-
-    getFlows.foreach { flowInfo =>
-      // FIXME: Assuming a single source and destination for each flow
-      val src = flowInfo.source
-      val dst = flowInfo.destClient.host
-      
-      sBytes(src) = sBytes(src) + flowInfo.bytesLeft
-      rBytes(dst) = rBytes(dst) + flowInfo.bytesLeft
-    }
-    math.max(sBytes.values.max, rBytes.values.max)
-  }
-
   def addFlow(flowDesc: FlowDescription) {
     assert(!idToFlow.containsKey(flowDesc.id))
     idToFlow.put(flowDesc.id, new FlowInfo(flowDesc))
@@ -123,10 +91,10 @@ private[varys] class CoflowInfo(
   }
 
   /**
-   * Adds destination for a given piece of data. 
-   * Assume flowId already exists in idToFlow
-   * Returns true if the coflow is ready to go
-   */
+    * Adds destination for a given piece of data.
+    * Assume flowId already exists in idToFlow
+    * Returns true if the coflow is ready to go
+    */
   def addDestination(flowId: String, destClient: ClientInfo): Boolean = {
     if (idToFlow.get(flowId).destClient == null) {
       numRegisteredFlows.getAndIncrement
@@ -136,9 +104,33 @@ private[varys] class CoflowInfo(
   }
 
   /**
-   * Mark this coflow as RUNNING only after all flows are alive
-   * Returns true if the coflow is ready to go
-   */
+    * Keep track of allocation over time
+    */
+  def setCurrentAllocation(newTotalBps: Double) = {
+    allocationOverTime += ((System.currentTimeMillis, newTotalBps))
+  }
+
+  def currentAllocation(): (Long, Double) = allocationOverTime.last
+
+  /**
+    * Adds destinations for a multiple pieces of data.
+    * Assume flowId already exists in idToFlow
+    * Returns true if the coflow is ready to go
+    */
+  def addDestinations(flowIds: Array[String], destClient: ClientInfo): Boolean = {
+    flowIds.foreach { flowId =>
+      if (idToFlow.get(flowId).destClient == null) {
+        numRegisteredFlows.getAndIncrement
+      }
+      idToFlow.get(flowId).setDestination(destClient)
+    }
+    postProcessIfReady
+  }
+
+  /**
+    * Mark this coflow as RUNNING only after all flows are alive
+    * Returns true if the coflow is ready to go
+    */
   private def postProcessIfReady(): Boolean = {
     if (numRegisteredFlows.get == desc.maxFlows) {
       origAlpha = calcAlpha()
@@ -150,34 +142,35 @@ private[varys] class CoflowInfo(
     }
   }
 
-  /**
-   * Keep track of allocation over time
-   */
-  def setCurrentAllocation(newTotalBps: Double) = {
-    allocationOverTime += ((System.currentTimeMillis, newTotalBps))
+  def changeState(nextState: CoflowState.Value) {
+    _prevState = _curState
+    _curState = nextState
   }
 
-  def currentAllocation(): (Long, Double) = allocationOverTime.last
-
   /**
-   * Adds destinations for a multiple pieces of data. 
-   * Assume flowId already exists in idToFlow
-   * Returns true if the coflow is ready to go
-   */
-  def addDestinations(flowIds: Array[String], destClient: ClientInfo): Boolean = {
-    flowIds.foreach { flowId => 
-      if (idToFlow.get(flowId).destClient == null) {
-        numRegisteredFlows.getAndIncrement
-      }
-      idToFlow.get(flowId).setDestination(destClient)
+    * Calculating alpha for the coflow based on remaining flow size
+    */
+  def calcAlpha(): Double = {
+    val sBytes = new HashMap[String, Double]().withDefaultValue(0.0)
+    val rBytes = new HashMap[String, Double]().withDefaultValue(0.0)
+
+    getFlows.foreach { flowInfo =>
+      // FIXME: Assuming a single source and destination for each flow
+      val src = flowInfo.source
+      val dst = flowInfo.destClient.host
+
+      sBytes(src) = sBytes(src) + flowInfo.bytesLeft
+      rBytes(dst) = rBytes(dst) + flowInfo.bytesLeft
     }
-    postProcessIfReady
+    math.max(sBytes.values.max, rBytes.values.max)
   }
 
+  def getFlows() = idToFlow.values.asScala.filter(_.isLive)
+
   /**
-   * Updates bytes remaining in the specified flow
-   * Returns true if the flow has completed; false otherwise
-   */
+    * Updates bytes remaining in the specified flow
+    * Returns true if the flow has completed; false otherwise
+    */
   def updateFlow(flowId: String, bytesSinceLastUpdate: Long, isCompleted: Boolean): Boolean = {
     val flow = idToFlow.get(flowId)
     flow.decreaseBytes(bytesSinceLastUpdate)
@@ -191,7 +184,7 @@ private[varys] class CoflowInfo(
   }
 
   def removeFlow(flowId: String) {
-    // TODO: 
+    // TODO:
   }
 
   def incrementRetryCount = {
@@ -205,8 +198,8 @@ private[varys] class CoflowInfo(
   }
 
   /**
-   * Returns an estimation of remaining bytes
-   */
+    * Returns an estimation of remaining bytes
+    */
   def remainingSizeInBytes(): Double = {
     bytesLeft.toDouble
   }
@@ -218,9 +211,13 @@ private[varys] class CoflowInfo(
       System.currentTimeMillis() - startTime
     }
   }
-  
-  override def toString: String = "CoflowInfo(" + id + "[" + desc + "], state=" + curState + 
-    ", numRegisteredFlows=" + numRegisteredFlows.get + ", numCompletedFlows=" + 
-    numCompletedFlows.get + ", bytesLeft= " + bytesLeft + ", deadlineMillis= " + 
+
+  override def toString: String = "CoflowInfo(" + id + "[" + desc + "], state=" + curState +
+    ", numRegisteredFlows=" + numRegisteredFlows.get + ", numCompletedFlows=" +
+    numCompletedFlows.get + ", bytesLeft= " + bytesLeft + ", deadlineMillis= " +
     desc.deadlineMillis + ")"
+
+  def curState = _curState
+
+  def bytesLeft: Long = bytesLeft_.get()
 }

@@ -16,7 +16,6 @@
  */
 
 package varys.framework.master.ui
-
 import akka.pattern.ask
 
 import javax.servlet.http.HttpServletRequest
@@ -32,7 +31,6 @@ import varys.framework.JsonProtocol
 import varys.framework.master.ClientInfo
 import varys.ui.UIUtils
 import varys.Utils
-
 private[varys] class CoflowPage(parent: MasterWebUI) {
   val master = parent.masterActorRef
   implicit val timeout = parent.timeout
@@ -40,7 +38,7 @@ private[varys] class CoflowPage(parent: MasterWebUI) {
   /** Details for a particular Coflow */
   def renderJson(request: HttpServletRequest): JValue = {
     val coflowId = request.getParameter("coflowId")
-    val stateFuture = (master ? RequestMasterState)(timeout).mapTo[MasterState]
+    val stateFuture = (master ? RequestMasterState) (timeout).mapTo[MasterState]
     val state = Await.result(stateFuture, 30.seconds)
     val coflow = state.activeCoflows.find(_.id == coflowId).getOrElse({
       state.completedCoflows.find(_.id == coflowId).getOrElse(null)
@@ -51,24 +49,34 @@ private[varys] class CoflowPage(parent: MasterWebUI) {
   /** Details for a particular Coflow */
   def render(request: HttpServletRequest): Seq[Node] = {
     val coflowId = request.getParameter("coflowId")
-    val stateFuture = (master ? RequestMasterState)(timeout).mapTo[MasterState]
+    val stateFuture = (master ? RequestMasterState) (timeout).mapTo[MasterState]
     val state = Await.result(stateFuture, 30.seconds)
     val coflow = state.activeCoflows.find(_.id == coflowId).getOrElse({
       state.completedCoflows.find(_.id == coflowId).getOrElse(null)
     })
 
     val content =
-        <div class="row-fluid">
-          <div class="span12">
-            <ul class="unstyled">
-              <li><strong>ID:</strong> {coflow.id}</li>
-              <li><strong>Name:</strong> {coflow.desc.name}</li>
-              <li><strong>User:</strong> {coflow.desc.user}</li>
-              <li><strong>Submit Date:</strong> {coflow.submitDate}</li>
-              <li><strong>State:</strong> {coflow.curState}</li>
-            </ul>
-          </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <ul class="unstyled">
+            <li>
+              <strong>ID:</strong>{coflow.id}
+            </li>
+            <li>
+              <strong>Name:</strong>{coflow.desc.name}
+            </li>
+            <li>
+              <strong>User:</strong>{coflow.desc.user}
+            </li>
+            <li>
+              <strong>Submit Date:</strong>{coflow.submitDate}
+            </li>
+            <li>
+              <strong>State:</strong>{coflow.curState}
+            </li>
+          </ul>
         </div>
+      </div>
     UIUtils.basicVarysPage(content, "Coflow: " + coflow.desc.name)
   }
 }

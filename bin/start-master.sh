@@ -32,8 +32,8 @@ if [ "$VARYS_PUBLIC_DNS" = "" ]; then
     fi
 fi
 
-"$bin"/varys-daemon.sh start varys.framework.master.Master --ip $VARYS_MASTER_IP --port $VARYS_MASTER_PORT --webui-port $VARYS_MASTER_WEBUI_PORT
+"$bin"/varys-daemon.sh start varys.framework.master.Master --ip $VARYS_MASTER_IP --port $VARYS_MASTER_PORT --webui-port $VARYS_MASTER_WEBUI_PORT -n
 
 # Start a slave agent at the Master
 sleep 1
-"$bin"/varys-daemon.sh start varys.framework.slave.Slave varys://$VARYS_MASTER_IP:$VARYS_MASTER_PORT
+"$bin"/varys-daemon.sh start varys.framework.slave.Slave varys://$VARYS_MASTER_IP:$VARYS_MASTER_PORT -n

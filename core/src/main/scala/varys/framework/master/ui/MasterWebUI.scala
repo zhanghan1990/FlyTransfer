@@ -30,25 +30,29 @@ import varys.ui.JettyUtils
 import varys.ui.JettyUtils._
 
 /**
- * Web UI server for the standalone master.
- */
+  * Web UI server for the standalone master.
+  */
 private[varys]
-class MasterWebUI(masterActorRef_ : ActorRef, requestedPort: Int,bDNS:Boolean=true) extends Logging {
+class MasterWebUI(masterActorRef_ : ActorRef, requestedPort: Int, bDNS: Boolean = true) extends Logging {
   implicit val timeout = Duration.create(
     System.getProperty("varys.akka.askTimeout", "10").toLong, "seconds")
-  var host = Utils.localHostName()
-  if(bDNS==false){
-    host=Utils.localIpAddress
-  }
   val port = requestedPort
-
+  if (bDNS == false) {
+    host = Utils.localIpAddress
+  }
   val masterActorRef = masterActorRef_
-  
-  var server: Option[Server] = None
-  var boundPort: Option[Int] = None
-
   val coflowPage = new CoflowPage(this)
   val indexPage = new IndexPage(this)
+  val handlers = Array[(String, Handler)](
+    ("/static", createStaticHandler(MasterWebUI.STATIC_RESOURCE_DIR)),
+    ("/coflow/json", (request: HttpServletRequest) => coflowPage.renderJson(request)),
+    ("/coflow", (request: HttpServletRequest) => coflowPage.render(request)),
+    ("/json", (request: HttpServletRequest) => indexPage.renderJson(request)),
+    ("*", (request: HttpServletRequest) => indexPage.render(request))
+  )
+  var host = Utils.localHostName()
+  var server: Option[Server] = None
+  var boundPort: Option[Int] = None
 
   def start() {
     try {
@@ -62,14 +66,6 @@ class MasterWebUI(masterActorRef_ : ActorRef, requestedPort: Int,bDNS:Boolean=tr
         System.exit(1)
     }
   }
-
-  val handlers = Array[(String, Handler)](
-    ("/static", createStaticHandler(MasterWebUI.STATIC_RESOURCE_DIR)),
-    ("/coflow/json", (request: HttpServletRequest) => coflowPage.renderJson(request)),
-    ("/coflow", (request: HttpServletRequest) => coflowPage.render(request)),
-    ("/json", (request: HttpServletRequest) => indexPage.renderJson(request)),
-    ("*", (request: HttpServletRequest) => indexPage.render(request))
-  )
 
   def stop() {
     server.foreach(_.stop())

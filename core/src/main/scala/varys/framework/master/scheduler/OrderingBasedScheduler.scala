@@ -1,16 +1,14 @@
 package varys.framework.master.scheduler
-
 import scala.collection.mutable.{ArrayBuffer, HashMap, Map}
 
 import varys.framework.master.{CoflowInfo, CoflowState, FlowInfo, SlaveInfo}
 import varys.Logging
-
 /**
- * Implementation of a generalized coflow scheduler that works using the 
- * following steps:
- *  1. Order coflows by some criteria.
- *  2. Allocate rates to individual flows of each admitted coflow in that order.
- */
+  * Implementation of a generalized coflow scheduler that works using the
+  * following steps:
+  *  1. Order coflows by some criteria.
+  *  2. Allocate rates to individual flows of each admitted coflow in that order.
+  */
 abstract class OrderingBasedScheduler extends CoflowScheduler with Logging {
 
   val NIC_BitPS = System.getProperty("varys.network.nicMbps", "1024").toDouble * 1048576.0
@@ -80,7 +78,7 @@ abstract class OrderingBasedScheduler extends CoflowScheduler with Logging {
           sBpsFree(src) = sBpsFree(src) - minFree
           rBpsFree(dst) = rBpsFree(dst) - minFree
         }
-        
+
         totalBps += flowInfo.currentBps
       }
       // Update current allocation of the coflow
@@ -91,27 +89,27 @@ abstract class OrderingBasedScheduler extends CoflowScheduler with Logging {
   }
 
   /**
-   *  Returns an ordered list of coflows based on the scheduling policy
-   */
-  def getOrderedCoflows(
-      activeCoflows: ArrayBuffer[CoflowInfo]): ArrayBuffer[CoflowInfo]
-
-  /**
-   * Mark a coflow as non-admissible based on some criteria.
-   * Overriden for schedulers with admission control (e.g., DeadlineScheduler)
-   */
+    * Mark a coflow as non-admissible based on some criteria.
+    * Overriden for schedulers with admission control (e.g., DeadlineScheduler)
+    */
   def markForRejection(
-      cf: CoflowInfo, 
-      sBpsFree: Map[String, Double], 
-      rBpsFree: Map[String, Double]): Boolean =  false
+                        cf: CoflowInfo,
+                        sBpsFree: Map[String, Double],
+                        rBpsFree: Map[String, Double]): Boolean = false
 
   /**
-   * Calculate rate of an individual flow based on the scheduling policy
-   */
+    * Returns an ordered list of coflows based on the scheduling policy
+    */
+  def getOrderedCoflows(
+                         activeCoflows: ArrayBuffer[CoflowInfo]): ArrayBuffer[CoflowInfo]
+
+  /**
+    * Calculate rate of an individual flow based on the scheduling policy
+    */
   def calcFlowRate(
-      flowInfo: FlowInfo,
-      cf: CoflowInfo,
-      minFree: Double): Double
+                    flowInfo: FlowInfo,
+                    cf: CoflowInfo,
+                    minFree: Double): Double
 
   /** Retuns current time */
   def now() = System.currentTimeMillis

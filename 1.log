@@ -1,0 +1,13 @@
+ServerSocket[addr=0.0.0.0/0.0.0.0,localport=60484]
+17/04/27 21:23:51.893 INFO DataServer: Created DataServer at 10.0.0.31:60484
+ServerSocket[addr=0.0.0.0/0.0.0.0,localport=60484]
+17/04/27 21:23:51.895 INFO DataServer: Data Server starting....
+17/04/27 21:23:52.510 INFO Slf4jLogger: Slf4jLogger started
+17/04/27 21:23:53.062 INFO VarysClient$ClientActor: Connecting to master varys://10.0.0.31:1606
+17/04/27 21:23:53.262 INFO BroadcastSender$TestListener: Connected to master, got client ID CLIENT-000001
+17/04/27 21:23:53.263 INFO VarysClient$ClientActor: Registered to master in 201 milliseconds. Local slave url = varys://10.0.0.31:60469
+17/04/27 21:23:53.276 INFO BroadcastSender: Registered coflow COFLOW-000001
+17/04/27 21:23:53.289 INFO VarysClient: Registered FlowDescription(dd232323d:FAKE:COFLOW-000001 # 1000000000 Bytes) in 13 milliseconds
+17/04/27 21:23:53.298 INFO BroadcastSender: Started MasterThread. Now waiting for it to die.
+17/04/27 21:23:53.300 INFO BroadcastSender: Broadcast Master Url: 10.0.0.31:1608
+17/04/27 21:24:07.692 INFO BroadcastSender: Unregistered coflow COFLOW-000001

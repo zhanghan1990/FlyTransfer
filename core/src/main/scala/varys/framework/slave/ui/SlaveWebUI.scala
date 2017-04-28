@@ -34,28 +34,20 @@ import varys.ui.JettyUtils._
 import varys.ui.UIUtils
 
 /**
- * Web UI server for the standalone slave.
- */
+  * Web UI server for the standalone slave.
+  */
 private[varys]
-class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=true,requestedPort: Option[Int] = None)
+class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS: Boolean = true, requestedPort: Option[Int] = None)
   extends Logging {
   implicit val timeout = Timeout(
     Duration.create(System.getProperty("varys.akka.askTimeout", "10").toLong, "seconds"))
-  var host = Utils.localHostName()
-
-  if(isDNS==false){
-    host=Utils.localIpAddress
-  }
-
-
   val port = requestedPort.getOrElse(
     System.getProperty("slave.ui.port", SlaveWebUI.DEFAULT_PORT).toInt)
 
-  var server: Option[Server] = None
-  var boundPort: Option[Int] = None
-
+  if (isDNS == false) {
+    host = Utils.localIpAddress
+  }
   val indexPage = new IndexPage(this)
-
   val handlers = Array[(String, Handler)](
     ("/static", createStaticHandler(SlaveWebUI.STATIC_RESOURCE_DIR)),
     ("/log", (request: HttpServletRequest) => log(request)),
@@ -63,6 +55,9 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
     ("/json", (request: HttpServletRequest) => indexPage.renderJson(request)),
     ("*", (request: HttpServletRequest) => indexPage.render(request))
   )
+  var host = Utils.localHostName()
+  var server: Option[Server] = None
+  var boundPort: Option[Int] = None
 
   def start() {
     try {
@@ -106,19 +101,30 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
     val file = new File(path)
     val logLength = file.length
 
-    val logText = <node>{Utils.offsetBytes(path, startByte, endByte)}</node>
+    val logText = <node>
+      {Utils.offsetBytes(path, startByte, endByte)}
+    </node>
 
-    val linkToMaster = <p><a href={slave.masterWebUiUrl}>Back to Master</a></p>
+    val linkToMaster = <p>
+      <a href={slave.masterWebUiUrl}>Back to Master</a>
+    </p>
 
-    val range = <span>Bytes {startByte.toString} - {endByte.toString} of {logLength}</span>
+    val range = <span>Bytes
+      {startByte.toString}
+      -
+      {endByte.toString}
+      of
+      {logLength}
+    </span>
 
     val backButton =
       if (startByte > 0) {
         <a href={"?coflowId=%s&logType=%s&offset=%s&byteLength=%s"
-          .format(coflowId, logType, math.max(startByte-byteLength, 0),
-          byteLength)}>
+          .format(coflowId, logType, math.max(startByte - byteLength, 0),
+            byteLength)}>
           <button type="button" class="btn btn-default">
-            Previous {Utils.bytesToString(math.min(byteLength, startByte))}
+            Previous
+            {Utils.bytesToString(math.min(byteLength, startByte))}
           </button>
         </a>
       }
@@ -133,7 +139,8 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
         <a href={"?coflowId=%s&logType=%s&offset=%s&byteLength=%s".
           format(coflowId, logType, endByte, byteLength)}>
           <button type="button" class="btn btn-default">
-            Next {Utils.bytesToString(math.min(byteLength, logLength-endByte))}
+            Next
+            {Utils.bytesToString(math.min(byteLength, logLength - endByte))}
           </button>
         </a>
       }
@@ -146,15 +153,22 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
     val content =
       <html>
         <body>
-          {linkToMaster}
-          <div>
-            <div style="float:left;width:40%">{backButton}</div>
-            <div style="float:left;">{range}</div>
-            <div style="float:right;">{nextButton}</div>
+          {linkToMaster}<div>
+          <div style="float:left;width:40%">
+            {backButton}
           </div>
-          <br />
+          <div style="float:left;">
+            {range}
+          </div>
+          <div style="float:right;">
+            {nextButton}
+          </div>
+        </div>
+          <br/>
           <div style="height:500px;overflow:auto;padding:5px;">
-            <pre>{logText}</pre>
+            <pre>
+              {logText}
+            </pre>
           </div>
         </body>
       </html>
@@ -169,7 +183,7 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
 
     val file = new File(path)
     val logLength = file.length()
-    val getOffset = offset.getOrElse(logLength-defaultBytes)
+    val getOffset = offset.getOrElse(logLength - defaultBytes)
 
     val startByte =
       if (getOffset < 0) 0L
@@ -178,7 +192,7 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
 
     val logPageLength = math.min(byteLength, maxBytes)
 
-    val endByte = math.min(startByte+logPageLength, logLength)
+    val endByte = math.min(startByte + logPageLength, logLength)
 
     (startByte, endByte)
   }
@@ -190,5 +204,5 @@ class SlaveWebUI(val slave: SlaveActor, val workDir: File, var isDNS:Boolean=tru
 
 private[varys] object SlaveWebUI {
   val STATIC_RESOURCE_DIR = "varys/ui/static"
-  val DEFAULT_PORT="16017"
+  val DEFAULT_PORT = "16017"
 }

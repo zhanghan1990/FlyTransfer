@@ -78,6 +78,7 @@ fi
 if [ "$VARYS_LOG_DIR" = "" ]; then
   export VARYS_LOG_DIR="$VARYS_HOME/logs"
 fi
+
 mkdir -p "$VARYS_LOG_DIR"
 touch $VARYS_LOG_DIR/.varys_test > /dev/null 2>&1
 TEST_LOG_DIR=$?
