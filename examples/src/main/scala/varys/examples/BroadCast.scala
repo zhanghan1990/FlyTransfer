@@ -130,7 +130,7 @@ private[varys] object BroadcastSender extends Logging {
                     // Send file information
                     oos.writeObject(bInfo)
                     oos.flush
-
+                    println("after writing the object to receiver")
                     // Mark end of slave connection
                     val bMsg2 = ois.readObject.asInstanceOf[BroadcastDone]
                     finishedSlaves.getAndIncrement()
@@ -228,10 +228,12 @@ private[varys] object BroadcastReceiver extends Logging {
     logInfo("Getting " + bInfo.DataName + " of " + bInfo.LEN_BYTES + " from coflow " + bInfo.coflowId)
 
     client.getFake(bInfo.DataName,bInfo.coflowId)
+
+    logInfo("get Fake Finished")
     // Mark end
     oos.writeObject(BroadcastDone())
     oos.flush
-
+    logInfo("after getting the Fake process")
     // Close everything
     exitGracefully(0)
   }
