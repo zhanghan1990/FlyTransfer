@@ -124,7 +124,7 @@ private[varys] object BroadcastSender extends Logging {
                     // Mark start of slave connection
                     val bMsg1 = ois.readObject.asInstanceOf[BroadcastRequest]
                     connectedSlaves.getAndIncrement()
-
+                    println(connectedSlaves)
                     // Send file information
                     oos.writeObject(bInfo)
                     oos.flush
@@ -132,6 +132,7 @@ private[varys] object BroadcastSender extends Logging {
                     // Mark end of slave connection
                     val bMsg2 = ois.readObject.asInstanceOf[BroadcastDone]
                     finishedSlaves.getAndIncrement()
+                    println(finishedSlaves)
                   } catch {
                     case e: Exception => {
                       logWarning(serverThreadName + " had a " + e)
@@ -222,7 +223,7 @@ private[varys] object BroadcastReceiver extends Logging {
     client.start()
 
 
-    //logInfo("Getting " + bInfo.DataName + " of " + bInfo.LEN_BYTES + " from coflow " + bInfo.coflowId)
+    logInfo("Getting " + bInfo.DataName + " of " + bInfo.LEN_BYTES + " from coflow " + bInfo.coflowId)
 
     client.getFake(bInfo.DataName,bInfo.coflowId)
     // Mark end
