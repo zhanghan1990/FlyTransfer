@@ -100,10 +100,12 @@ private[varys] object BroadcastSender extends Logging {
 
       try {
         while (!stopServer && !finished) {
+          println("finished slaves"+finishedSlaves.get())
           var clientSocket: Socket = null
           try {
             serverSocket.setSoTimeout(HEARTBEAT_SEC * 1000)
             clientSocket = serverSocket.accept
+            logInfo("now accepting client socket")
           } catch {
             case e: Exception => {
               if (stopServer) {
@@ -124,7 +126,7 @@ private[varys] object BroadcastSender extends Logging {
                     // Mark start of slave connection
                     val bMsg1 = ois.readObject.asInstanceOf[BroadcastRequest]
                     connectedSlaves.getAndIncrement()
-                    println(connectedSlaves)
+                    println("connected Slaves"+connectedSlaves)
                     // Send file information
                     oos.writeObject(bInfo)
                     oos.flush
@@ -132,7 +134,7 @@ private[varys] object BroadcastSender extends Logging {
                     // Mark end of slave connection
                     val bMsg2 = ois.readObject.asInstanceOf[BroadcastDone]
                     finishedSlaves.getAndIncrement()
-                    println(finishedSlaves)
+                    println("finished slaves"+finishedSlaves)
                   } catch {
                     case e: Exception => {
                       logWarning(serverThreadName + " had a " + e)
