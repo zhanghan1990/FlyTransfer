@@ -96,8 +96,10 @@ private[varys] class CoflowInfo(
     * Returns true if the coflow is ready to go
     */
   def addDestination(flowId: String, destClient: ClientInfo): Boolean = {
+    println("add Destination:"+flowId)
     if (idToFlow.get(flowId).destClient == null) {
       numRegisteredFlows.getAndIncrement
+      println("addDestination:"+numRegisteredFlows)
     }
     idToFlow.get(flowId).setDestination(destClient)
     postProcessIfReady
@@ -132,6 +134,7 @@ private[varys] class CoflowInfo(
     * Returns true if the coflow is ready to go
     */
   private def postProcessIfReady(): Boolean = {
+    println("postProcessIfReady:number of registered flows"+numRegisteredFlows.get+" maxflows"+desc.maxFlows)
     if (numRegisteredFlows.get == desc.maxFlows) {
       origAlpha = calcAlpha()
       changeState(CoflowState.READY)

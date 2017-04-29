@@ -328,6 +328,8 @@ class VarysClient(
     // Get it!
     val (origFlowDesc, retVal) = getOne(flowDesc)
     // Notify flow completion
+    logInfo("after get completion time")
+
     masterActor ! FlowProgress(
       origFlowDesc.id,
       origFlowDesc.coflowId,
