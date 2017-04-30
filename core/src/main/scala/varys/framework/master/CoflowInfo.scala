@@ -97,10 +97,10 @@ private[varys] class CoflowInfo(
     */
   def addDestination(flowId: String, destClient: ClientInfo): Boolean = {
     println("add Destination: "+flowId)
-    //if (idToFlow.get(flowId).destClient == null) {
+    if (idToFlow.get(flowId).destClient == null) {
       numRegisteredFlows.getAndIncrement
       println("addDestination: "+numRegisteredFlows)
-   // }
+    }
     idToFlow.get(flowId).setDestination(destClient)
     postProcessIfReady
   }

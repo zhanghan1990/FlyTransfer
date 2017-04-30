@@ -361,6 +361,7 @@ private[varys] class Master(
       assert(client != null)
       //
 
+
       val coflow = idToCoflow.get(coflowId)
       assert(coflow != null)
       // assert(coflow.contains(flowId))

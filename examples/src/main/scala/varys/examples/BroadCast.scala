@@ -179,13 +179,14 @@ private[varys] object BroadcastReceiver extends Logging {
   implicit val futureExecContext = ExecutionContext.fromExecutor(Utils.newDaemonCachedThreadPool())
 
   def main(args: Array[String]) {
-    if (args.length < 2) {
-      println("USAGE: BroadcastReceiver <varysMasterUrl> <broadcastMasterUrl>")
+    if (args.length < 3) {
+      println("USAGE: BroadcastReceiver <varysMasterUrl> <broadcastMasterUrl><clientid>")
       System.exit(1)
     }
 
     val url = args(0)
     val bUrl = args(1)
+    val clientid=args(2)
 
     var masterHost: String = null
     var masterPort: Int = 0
@@ -227,7 +228,7 @@ private[varys] object BroadcastReceiver extends Logging {
 
     logInfo("Getting " + bInfo.DataName + " of " + bInfo.LEN_BYTES + " from coflow " + bInfo.coflowId)
 
-    client.getFake(bInfo.DataName,bInfo.coflowId)
+    client.getFake(bInfo.DataName+clientid,bInfo.coflowId)
 
     logInfo("get Fake Finished")
     // Mark end
