@@ -50,14 +50,16 @@ private[varys] object BroadcastSender extends Logging {
     val client = new VarysClient("BroadcastSender", url, false, listener)
     client.start()
 
-    val desc = new CoflowDescription("Broadcast-" + DataName, CoflowType.BROADCAST, numSlaves, LEN_BYTES * numSlaves)
+    val desc = new CoflowDescription("Broadcast-" + DataName, CoflowType.DEFAULT, numSlaves, LEN_BYTES * numSlaves)
 
     val coflowId = client.registerCoflow(desc)
     logInfo("Registered coflow " + coflowId)
 
+    var i=0
     // PUT blocks of the input file
-    client.putFake(DataName, coflowId, LEN_BYTES, numSlaves)
-
+    for(i<-0 to numSlaves){
+      client.putFake(DataName+i, coflowId, LEN_BYTES, 1)
+    }
     // Start server after registering the coflow and relevant
     val masterThread = new MasterThread(BroadcastInfo(coflowId,DataName,LEN_BYTES), numSlaves)
     masterThread.start()
@@ -180,7 +182,7 @@ private[varys] object BroadcastReceiver extends Logging {
 
   def main(args: Array[String]) {
     if (args.length < 3) {
-      println("USAGE: BroadcastReceiver <varysMasterUrl> <broadcastMasterUrl><clientid>")
+      println("USAGE: BroadcastReceiver <varysMasterUrl> <broadcastMasterUrl><dataid>")
       System.exit(1)
     }
 
@@ -226,7 +228,7 @@ private[varys] object BroadcastReceiver extends Logging {
     client.start()
 
 
-    logInfo("Getting " + bInfo.DataName + " of " + bInfo.LEN_BYTES + " from coflow " + bInfo.coflowId)
+    logInfo("Getting " + bInfo.DataName+clientid + " of " + bInfo.LEN_BYTES + " from coflow " + bInfo.coflowId)
 
     client.getFake(bInfo.DataName+clientid,bInfo.coflowId)
 
