@@ -96,11 +96,11 @@ private[varys] class CoflowInfo(
     * Returns true if the coflow is ready to go
     */
   def addDestination(flowId: String, destClient: ClientInfo): Boolean = {
-    println("add Destination:"+flowId)
-    if (idToFlow.get(flowId).destClient == null) {
+    println("add Destination: "+flowId)
+    //if (idToFlow.get(flowId).destClient == null) {
       numRegisteredFlows.getAndIncrement
-      println("addDestination:"+numRegisteredFlows)
-    }
+      println("addDestination: "+numRegisteredFlows)
+   // }
     idToFlow.get(flowId).setDestination(destClient)
     postProcessIfReady
   }
