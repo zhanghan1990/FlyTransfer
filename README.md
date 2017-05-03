@@ -1,32 +1,38 @@
 # Yosemite
-Yosemite tries to minimize weight coflow completion time,
-codes of Yosemite is based on Varys
+Yosemite tries to minimize weight coflow completion time.
+some codes of Yosemite borrow from Varys
 
 ## Building Yosemite
 
 ```
-./sbt/sbt package
+git clone https://github.com/zhanghan1990/Yosemite.git
+cd Yosemite
+sbt assembly
 ```
 
-### SBT
-```
-libraryDependencies += "net.varys" %% "varys-core" % "0.2.0-SNAPSHOT"
-```
-###How to use
+After this, you will get 2 files:
+- /core/target/scala-2.10/Yosemite-core-assembly-0.2.0-SNAPSHOT.jar
+- /examples/target/scala-2.10/Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar
 
+The two files are the package of Yosemite project
 
-- Start the master
+### How to deploy (multi-nodes)
+
+##### Start master at the master node
 ```
-./run varys.framework.master.Master -n
+java  -cp /youpath/Yosemite-core-assembly-0.2.0-SNAPSHOT.jar varys.framework.master.Master -n
+
 ```
 
-- Start the slave
+Open http://$master-ip:16016 with your browser, you will see the
+web address of the master, then copy the address as master-address
+
+#### Start slave at each node (including the master node)
+
 ```
- ./run varys.framework.slave.Slave varys://10.0.0.31:1606 -n
+java  -cp /Yosemite-core-assembly-0.2.0-SNAPSHOT.jar varys.framework.slave.Slave $master-address -n
+
 ```
-where varys://10.0.0.31:1606 is the address of slave
+note file log4j.properties should at the same directory
 
-- start the client
-
-
-client will at the example code
+#### Start application at every node

@@ -16,22 +16,17 @@
  */
 
 package varys.framework.master.ui
-import akka.pattern.ask
-
 import javax.servlet.http.HttpServletRequest
 
+import akka.pattern.ask
 import net.liftweb.json.JsonAST.JValue
+import varys.framework.master.{CoflowInfo, SlaveInfo}
+import varys.framework.{FrameworkWebUI, JsonProtocol, MasterState, RequestMasterState}
+import varys.ui.UIUtils
 
 import scala.concurrent.Await
 import scala.concurrent.duration._
 import scala.xml.Node
-
-import varys.framework.FrameworkWebUI
-import varys.framework.{MasterState, RequestMasterState}
-import varys.framework.JsonProtocol
-import varys.framework.master.{CoflowInfo, SlaveInfo, ClientInfo}
-import varys.ui.UIUtils
-import varys.Utils
 private[varys] class IndexPage(parent: MasterWebUI) {
   val master = parent.masterActorRef
   implicit val timeout = parent.timeout
@@ -93,7 +88,7 @@ private[varys] class IndexPage(parent: MasterWebUI) {
             <h4>Completed Coflows</h4>{completedCoflowsTable}
           </div>
         </div>;
-    UIUtils.basicVarysPage(content, "Varys Master at " + state.uri)
+    UIUtils.basicVarysPage(content, "Yosemite Master at " + state.uri)
   }
 
   def slaveRow(slave: SlaveInfo): Seq[Node] = {

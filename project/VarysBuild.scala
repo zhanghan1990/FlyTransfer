@@ -2,7 +2,10 @@ import sbt.Classpaths.managedJars
 import sbt.Keys._
 import sbt._
 
+
 object VarysBuild extends Build {
+
+
   lazy val root = Project("root", file("."), settings = rootSettings) aggregate(core, examples)
 
   lazy val core = Project("core", file("core"), settings = coreSettings)
@@ -13,6 +16,9 @@ object VarysBuild extends Build {
 
   lazy val extractJarsTarget = SettingKey[File]("extract-jars-target", "Target directory for extracted JAR files")
 
+
+
+
   lazy val extractJars = TaskKey[Unit]("extract-jars", "Extracts JAR files")
   val jettyVersion = "8.1.14.v20131031"
   val slf4jVersion = "1.7.5"
@@ -20,7 +26,7 @@ object VarysBuild extends Build {
   val excludeNetty = ExclusionRule(organization = "org.jboss.netty")
 
   def coreSettings = sharedSettings ++ Seq(
-    name := "varys-core",
+    name := "Yosemite-core",
     resolvers ++= Seq(
       "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
       "JBoss Repository" at "http://repository.jboss.org/nexus/content/repositories/releases/",
@@ -41,7 +47,7 @@ object VarysBuild extends Build {
       "io.netty" % "netty-all" % "4.0.23.Final",
       "org.fusesource" % "sigar" % sigarVersion classifier "" classifier "native",
       "com.esotericsoftware.kryo" % "kryo" % "2.19",
-      "javax.servlet" % "javax.servlet-api" % "3.0.1",
+      "javax.servlet" % "javax.servlet-api" % "3.0.1"% "provided",
       "com.github.romix.akka" % "akka-kryo-serialization_2.10" % "0.3.1"
     ),
 
@@ -74,7 +80,7 @@ object VarysBuild extends Build {
   )
 
   def examplesSettings = sharedSettings ++ Seq(
-    name := "varys-examples"
+    name := "Yosemite-examples"
   )
 
   def sharedSettings = Defaults.defaultSettings ++ Seq(

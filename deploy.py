@@ -20,43 +20,43 @@ import threading
 
 
 
-def ssh2(ip,username,passwd,cmd,port):
-    try:
-        ssh = paramiko.SSHClient()
-        ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(ip,port,username,passwd,timeout=5)
-        stdin, stdout, stderr = ssh.exec_command(cmd)
-        while True:
-        	for line in iter(lambda: stdout.readline(2048), ""):
-        		print(line)
+# def ssh2(ip,username,passwd,cmd,port):
+#     try:
+#         ssh = paramiko.SSHClient()
+#         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+#         ssh.connect(ip,port,username,passwd,timeout=5)
+#         stdin, stdout, stderr = ssh.exec_command(cmd)
+#         while True:
+#         	for line in iter(lambda: stdout.readline(2048), ""):
+#         		print(line)
 
-    except :
-        print '%s\tError\n'%(ip)
-
-
+#     except :
+#         print '%s\tError\n'%(ip)
 
 
 
-if __name__=='__main__':
-    cmd = 'nonhup /root/Yosemite/bin/start-all.sh &'#你要执行的命令列表
-    username = "root"  #用户名
-    passwd = "zhanghan"    #密码
-    threads = []   #多线程
-    ip="192.168.1.102"
-    # print "Begin......"
-    # for i in range(1,254):
-    #     ip = '192.168.1.'+str(i)
-    #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,port))
-    #     a.start() 
 
-    a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11111))
-    a.start()
 
-#     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11112))
+# if __name__=='__main__':
+#     cmd = 'nonhup /root/Yosemite/bin/start-all.sh &'#你要执行的命令列表
+#     username = "root"  #用户名
+#     passwd = "zhanghan"    #密码
+#     threads = []   #多线程
+#     ip="192.168.1.102"
+#     # print "Begin......"
+#     # for i in range(1,254):
+#     #     ip = '192.168.1.'+str(i)
+#     #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,port))
+#     #     a.start() 
+
+#     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11111))
 #     a.start()
 
-#     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11113))
-#     a.start()
+# #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11112))
+# #     a.start()
+
+# #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11113))
+# #     a.start()
 
 
 
@@ -65,8 +65,8 @@ if __name__=='__main__':
 
 
 
-# import docker
-# client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
+import docker
+client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
 
 # # To create the dockers in our cloud
 
@@ -90,7 +90,20 @@ if __name__=='__main__':
 # except Exception as e:
 # 	print e
 #print c1[0].logs()
-#containerall=client.containers.list(filters={"ancestor":"192.168.1.102:5000/varys"})
+# for i in range(0,30):
+#     print client.containers.run(image='slave',detach=True)
+
+containerall=client.containers.list(filters={"ancestor":"slave"})
+for c in containerall:
+    print c.attrs['NetworkSettings']['Networks']['bridge']['IPAddress']
+# containerall[0].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastSender varys://192.168.5.10:1606 2 \"DDDD\" 10000',detach=True)
+# containerall[1].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastSender varys://192.168.5.10:1606 1 \"111\" 10000',detach=True)
+# containerall[1].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastReceiver varys://192.168.5.10:1606 192.168.5.42:1608  1',detach=True)
+# containerall[2].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastReceiver varys://192.168.5.10:1606 192.168.5.42:1608  2',detach=True)
+# containerall[2].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastReceiver varys://192.168.5.10:1606 192.168.5.43:1608  2',detach=True)
+# for c in containerall:
+#     c.stop()
+#     c.remove()
 #master=client.containers.list(filters={"name":"master"})
 #print containerall
 # for c in master:
