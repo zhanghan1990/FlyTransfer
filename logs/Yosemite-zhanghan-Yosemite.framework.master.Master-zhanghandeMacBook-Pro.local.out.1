@@ -1,0 +1,115 @@
+17/05/03 10:16:13.478 INFO Slf4jLogger: Slf4jLogger started
+17/05/03 10:16:14.138 INFO Master$MasterActor: Starting Varys master at Yosemite://10.0.0.31:1606
+start master ui
+17/05/03 10:16:14.194 INFO MasterWebUI: Started Master web UI at http://zhanghandeMacBook-Pro.local:16016
+17/05/03 10:16:24.445 INFO Master$MasterActor: Registering slave 10.0.0.31:52206
+17/05/03 10:17:03.359 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000000 in 17 milliseconds
+17/05/03 10:17:33.398 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000001 in 0 milliseconds
+17/05/03 10:18:03.416 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000002 in 0 milliseconds
+17/05/03 10:18:33.434 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000003 in 1 milliseconds
+17/05/03 10:19:03.451 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000004 in 0 milliseconds
+17/05/03 10:19:33.465 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000005 in 0 milliseconds
+17/05/03 10:20:03.482 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000006 in 1 milliseconds
+17/05/03 10:20:33.498 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000007 in 1 milliseconds
+17/05/03 10:21:03.513 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000008 in 1 milliseconds
+17/05/03 10:21:33.529 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000009 in 0 milliseconds
+17/05/03 10:22:03.549 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000010 in 0 milliseconds
+17/05/03 10:22:33.565 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000011 in 0 milliseconds
+17/05/03 10:23:03.577 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000012 in 0 milliseconds
+17/05/03 10:23:33.593 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000013 in 1 milliseconds
+17/05/03 10:24:03.612 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000014 in 0 milliseconds
+17/05/03 10:24:33.626 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000015 in 0 milliseconds
+17/05/03 10:25:03.639 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000016 in 0 milliseconds
+17/05/03 10:25:33.652 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000017 in 0 milliseconds
+17/05/03 10:26:03.671 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000018 in 0 milliseconds
+17/05/03 10:26:33.688 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000019 in 0 milliseconds
+17/05/03 10:27:03.702 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000020 in 0 milliseconds
+17/05/03 10:27:33.716 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000021 in 0 milliseconds
+17/05/03 10:28:03.732 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000022 in 0 milliseconds
+17/05/03 10:28:33.748 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000023 in 0 milliseconds
+17/05/03 10:29:03.768 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000024 in 0 milliseconds
+17/05/03 10:29:33.783 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000025 in 0 milliseconds
+17/05/03 10:30:03.798 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000026 in 0 milliseconds
+17/05/03 10:30:33.813 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000027 in 1 milliseconds
+17/05/03 10:31:03.826 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000028 in 0 milliseconds
+17/05/03 10:31:33.840 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000029 in 0 milliseconds
+17/05/03 10:32:03.866 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000030 in 1 milliseconds
+17/05/03 10:32:33.881 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000031 in 0 milliseconds
+17/05/03 10:33:03.901 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000032 in 0 milliseconds
+17/05/03 10:33:15.335 ERROR Master$MasterActor: Removing SlaveInfo(slave-20170503101623-10.0.0.31-52206[10.0.0.31:52206]:DEAD)
+17/05/03 10:33:15.398 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52206]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52206]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52206]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52206
+]
+17/05/03 10:33:15.399 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52206]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52206]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52206]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52206
+]
+17/05/03 10:33:15.405 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52206]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52206]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52206]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52206
+]
+17/05/03 10:34:46.134 ERROR EndpointWriter: dropping message [class akka.actor.SelectChildName] for non-local recipient [Actor[akka.tcp://YosemiteMaster@10.0.0.31:1606/]] arriving at [akka.tcp://YosemiteMaster@10.0.0.31:1606] inbound addresses are [akka.tcp://varysMaster@10.0.0.31:1606]
+17/05/03 10:34:54.405 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://varysClient@10.0.0.31:52223]: Error [Association failed with [akka.tcp://varysClient@10.0.0.31:52223]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://varysClient@10.0.0.31:52223]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52223
+]
+17/05/03 10:34:54.409 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://varysClient@10.0.0.31:52223]: Error [Association failed with [akka.tcp://varysClient@10.0.0.31:52223]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://varysClient@10.0.0.31:52223]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52223
+]
+17/05/03 10:34:54.414 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://varysClient@10.0.0.31:52223]: Error [Association failed with [akka.tcp://varysClient@10.0.0.31:52223]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://varysClient@10.0.0.31:52223]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52223
+]
+17/05/03 10:35:05.396 ERROR EndpointWriter: dropping message [class akka.actor.SelectChildName] for non-local recipient [Actor[akka.tcp://YosemiteMaster@10.0.0.31:1606/]] arriving at [akka.tcp://YosemiteMaster@10.0.0.31:1606] inbound addresses are [akka.tcp://varysMaster@10.0.0.31:1606]
+17/05/03 10:35:16.299 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52362]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52362]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52362]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52362
+]
+17/05/03 10:35:16.302 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52362]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52362]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52362]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52362
+]
+17/05/03 10:35:16.306 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52362]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52362]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52362]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52362
+]
+17/05/03 10:35:35.562 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52370]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52370]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52370]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52370
+]
+17/05/03 10:35:35.565 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52370]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52370]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52370]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52370
+]
+17/05/03 10:35:35.569 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52370]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52370]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52370]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52370
+]
+17/05/03 10:37:10.890 ERROR EndpointWriter: dropping message [class akka.actor.SelectChildName] for non-local recipient [Actor[akka.tcp://YosemiteMaster@10.0.0.31:1606/]] arriving at [akka.tcp://YosemiteMaster@10.0.0.31:1606] inbound addresses are [akka.tcp://varysMaster@10.0.0.31:1606]
+17/05/03 10:37:41.130 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52405]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52405]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52405]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52405
+]
+17/05/03 10:37:41.133 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52405]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52405]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52405]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52405
+]
+17/05/03 10:37:41.137 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52405]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52405]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52405]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52405
+]
+17/05/03 10:37:57.400 ERROR EndpointWriter: dropping message [class akka.actor.SelectChildName] for non-local recipient [Actor[akka.tcp://YosemiteMaster@10.0.0.31:1606/]] arriving at [akka.tcp://YosemiteMaster@10.0.0.31:1606] inbound addresses are [akka.tcp://varysMaster@10.0.0.31:1606]
+17/05/03 10:38:27.648 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52422]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52422]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52422]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52422
+]
+17/05/03 10:38:27.660 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52422]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52422]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52422]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52422
+]
+17/05/03 10:38:27.667 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteSlave@10.0.0.31:52422]: Error [Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52422]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteSlave@10.0.0.31:52422]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52422
+]

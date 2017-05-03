@@ -5,6 +5,6 @@
 bin=`dirname "$0"`
 bin=`cd "$bin"; pwd`
 
-. "$bin/varys-config.sh"
+. "$bin/Yosemite-config.sh"
 
-"$bin"/varys-daemons.sh stop varys.framework.slave.Slave
+"$bin"/Yosemite-daemons.sh stop Yosemite.framework.slave.Slave

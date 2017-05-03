@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# This Varys framework script is a modified version of the Apache Hadoop framework
+# This YOSEMITE framework script is a modified version of the Apache Hadoop framework
 # script, available under the Apache 2 license:
 #
 # Licensed to the Apache Software Foundation (ASF) under one or more
@@ -22,11 +22,11 @@
 #
 # Environment Variables
 #
-#   VARYS_SLAVES    File naming remote hosts.
-#     Default is ${VARYS_CONF_DIR}/slaves.
-#   VARYS_CONF_DIR  Alternate conf dir. Default is ${VARYS_HOME}/conf.
-#   VARYS_SLAVE_SLEEP Seconds to sleep between spawning remote commands.
-#   VARYS_SSH_OPTS Options passed to ssh when running remote commands.
+#   YOSEMITE_SLAVES    File naming remote hosts.
+#     Default is ${YOSEMITE_CONF_DIR}/slaves.
+#   YOSEMITE_CONF_DIR  Alternate conf dir. Default is ${YOSEMITE_HOME}/conf.
+#   YOSEMITE_SLAVE_SLEEP Seconds to sleep between spawning remote commands.
+#   YOSEMITE_SSH_OPTS Options passed to ssh when running remote commands.
 ##
 
 usage="Usage: slaves.sh [--config confdir] command..."
@@ -40,37 +40,37 @@ fi
 bin=`dirname "$0"`
 bin=`cd "$bin"; pwd`
 
-. "$bin/varys-config.sh"
+. "$bin/Yosemite-config.sh"
 
 # If the slaves file is specified in the command line,
 # then it takes precedence over the definition in 
-# varys-env.sh. Save it here.
-HOSTLIST=$VARYS_SLAVES
+# Yosemite-env.sh. Save it here.
+HOSTLIST=$YOSEMITE_SLAVES
 
-if [ -f "${VARYS_CONF_DIR}/varys-env.sh" ]; then
-  . "${VARYS_CONF_DIR}/varys-env.sh"
+if [ -f "${YOSEMITE_CONF_DIR}/Yosemite-env.sh" ]; then
+  . "${YOSEMITE_CONF_DIR}/Yosemite-env.sh"
 fi
 
 if [ "$HOSTLIST" = "" ]; then
-  if [ "$VARYS_SLAVES" = "" ]; then
-    export HOSTLIST="${VARYS_CONF_DIR}/slaves"
+  if [ "$YOSEMITE_SLAVES" = "" ]; then
+    export HOSTLIST="${YOSEMITE_CONF_DIR}/slaves"
   else
-    export HOSTLIST="${VARYS_SLAVES}"
+    export HOSTLIST="${YOSEMITE_SLAVES}"
   fi
 fi
 
 echo $"${@// /\\ }"
 
 # By default disable strict host key checking
-if [ "$VARYS_SSH_OPTS" = "" ]; then
-  VARYS_SSH_OPTS="-o StrictHostKeyChecking=no"
+if [ "$YOSEMITE_SSH_OPTS" = "" ]; then
+  YOSEMITE_SSH_OPTS="-o StrictHostKeyChecking=no"
 fi
 
 for slave in `cat "$HOSTLIST"|sed  "s/#.*$//;/^$/d"`; do
- ssh $VARYS_SSH_OPTS $slave $"${@// /\\ }" \
+ ssh $YOSEMITE_SSH_OPTS $slave $"${@// /\\ }" \
    2>&1 | sed "s/^/$slave: /" &
- if [ "$VARYS_SLAVE_SLEEP" != "" ]; then
-   sleep $VARYS_SLAVE_SLEEP
+ if [ "$YOSEMITE_SLAVE_SLEEP" != "" ]; then
+   sleep $YOSEMITE_SLAVE_SLEEP
  fi
 done
 

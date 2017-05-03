@@ -8,13 +8,13 @@ FWDIR="$(cd `dirname $0`; pwd)"
 # Export this as VARYS_HOME
 export VARYS_HOME="$FWDIR"
 
-# Load environment variables from conf/varys-env.sh, if it exists
+# Load environment variables from conf/Yosemite-env.sh, if it exists
 if [ -e $FWDIR/conf/varys-env.sh ] ; then
   . $FWDIR/conf/varys-env.sh
 fi
 
 if [ -z "$1" ]; then
-  echo "Usage: run <varys-class> [<args>]" >&2
+  echo "Usage: run <Yosemite-class> [<args>]" >&2
   exit 1
 fi
 

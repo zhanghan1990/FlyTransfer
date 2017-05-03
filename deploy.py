@@ -71,7 +71,7 @@ client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
 # # To create the dockers in our cloud
 
 # # First check if the container exists
-# container=client.containers.run(image='192.168.1.102:5000/varys',command='nohup /root/Yosemite/run varys.framework.master.Master -n &',detach=True,name="master",ports={'22/tcp': 22226})
+# container=client.containers.run(image='192.168.1.102:5000/Yosemite',command='nohup /root/Yosemite/run Yosemite.framework.master.Master -n &',detach=True,name="master",ports={'22/tcp': 22226})
 
 
 # List all the containers
@@ -81,7 +81,7 @@ client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
 # see https://github.com/docker/docker-py/blob/master/docker/models/containers.py for more detail of the usage
 # c1=client.containers.list(filters={"id":"371841afc7"})
 # try:
-# 	r=c1[0].exec_run(cmd='nohup /root/Yosemite/run varys.framework.master.Master -n &',tty=True,stream=True)
+# 	r=c1[0].exec_run(cmd='nohup /root/Yosemite/run Yosemite.framework.master.Master -n &',tty=True,stream=True)
 # 	print r.next()
 # 	print r.next()
 # 	print r.next()
@@ -96,11 +96,11 @@ client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
 containerall=client.containers.list(filters={"ancestor":"slave"})
 for c in containerall:
     print c.attrs['NetworkSettings']['Networks']['bridge']['IPAddress']
-# containerall[0].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastSender varys://192.168.5.10:1606 2 \"DDDD\" 10000',detach=True)
-# containerall[1].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastSender varys://192.168.5.10:1606 1 \"111\" 10000',detach=True)
-# containerall[1].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastReceiver varys://192.168.5.10:1606 192.168.5.42:1608  1',detach=True)
-# containerall[2].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastReceiver varys://192.168.5.10:1606 192.168.5.42:1608  2',detach=True)
-# containerall[2].exec_run(cmd='java -cp varys-examples-assembly-0.2.0-SNAPSHOT.jar varys.examples.BroadcastReceiver varys://192.168.5.10:1606 192.168.5.43:1608  2',detach=True)
+# containerall[0].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://192.168.5.10:1606 2 \"DDDD\" 10000',detach=True)
+# containerall[1].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://192.168.5.10:1606 1 \"111\" 10000',detach=True)
+# containerall[1].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastReceiver Yosemite://192.168.5.10:1606 192.168.5.42:1608  1',detach=True)
+# containerall[2].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastReceiver Yosemite://192.168.5.10:1606 192.168.5.42:1608  2',detach=True)
+# containerall[2].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastReceiver Yosemite://192.168.5.10:1606 192.168.5.43:1608  2',detach=True)
 # for c in containerall:
 #     c.stop()
 #     c.remove()
@@ -122,5 +122,5 @@ for c in containerall:
 #container.logs()
 #print c.info()
 #print  c.images(all='True')
-#print client.images(name='192.168.1.102:5000/varys')
-#c.containers.run("192.168.1.102:5000/varys", detach=True)
+#print client.images(name='192.168.1.102:5000/Yosemite')
+#c.containers.run("192.168.1.102:5000/Yosemite", detach=True)

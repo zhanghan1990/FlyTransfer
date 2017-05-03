@@ -1,5 +1,5 @@
 17/04/27 22:06:08.290 INFO Slf4jLogger: Slf4jLogger started
-17/04/27 22:06:08.800 INFO Master$MasterActor: Starting Varys master at varys://10.0.0.31:1606
+17/04/27 22:06:08.800 INFO Master$MasterActor: Starting Varys master at Yosemite://10.0.0.31:1606
 17/04/27 22:06:08.845 INFO MasterWebUI: Started Master web UI at http://zhanghandeMacBook-Pro.local:16016
 17/04/27 22:06:11.334 INFO Master$MasterActor: Registering slave 10.0.0.31:61549
 17/04/27 22:06:16.961 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000000 in 20 milliseconds
@@ -47,9 +47,9 @@ akka.remote.ShutDownAssociation: Shut down address: akka.tcp://varysSlave@10.0.0
 Caused by: akka.remote.transport.Transport$InvalidAssociationException: The remote system terminated the association because it is shutting down.
 ]
 17/04/27 22:17:01.661 ERROR ActorSystemImpl: Uncaught fatal error from thread [varysMaster-akka.actor.default-dispatcher-3] shutting down ActorSystem [varysMaster]
-java.lang.NoClassDefFoundError: varys/framework/master/Master$MasterActor$$anonfun$removeSlave$1
-	at varys.framework.master.Master$MasterActor.removeSlave(Master.scala:416)
-	at varys.framework.master.Master$MasterActor$$anonfun$receive$1.applyOrElse(Master.scala:202)
+java.lang.NoClassDefFoundError: Yosemite/framework/master/Master$MasterActor$$anonfun$removeSlave$1
+	at Yosemite.framework.master.Master$MasterActor.removeSlave(Master.scala:416)
+	at Yosemite.framework.master.Master$MasterActor$$anonfun$receive$1.applyOrElse(Master.scala:202)
 	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:498)
 	at akka.actor.ActorCell.invoke(ActorCell.scala:456)
 	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:237)
@@ -59,7 +59,7 @@ java.lang.NoClassDefFoundError: varys/framework/master/Master$MasterActor$$anonf
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.lang.ClassNotFoundException: varys.framework.master.Master$MasterActor$$anonfun$removeSlave$1
+Caused by: java.lang.ClassNotFoundException: Yosemite.framework.master.Master$MasterActor$$anonfun$removeSlave$1
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
 	at java.security.AccessController.doPrivileged(Native Method)

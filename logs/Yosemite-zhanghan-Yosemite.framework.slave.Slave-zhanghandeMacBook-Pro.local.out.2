@@ -1,0 +1,22 @@
+17/05/03 10:34:37.393 INFO Slf4jLogger: Slf4jLogger started
+17/05/03 10:34:37.826 INFO SlaveActor: Starting Yosemite slave 10.0.0.31:52358
+17/05/03 10:34:37.827 INFO SlaveActor: Yosemite home: /Users/zhanghan/Documents/文件资料/coflow/Yosemite/bin/..
+17/05/03 10:34:37.934 INFO DataServer: Created DataServer at 10.0.0.31:1607
+17/05/03 10:34:37.976 INFO SlaveWebUI: Started Slave web UI at http://zhanghandeMacBook-Pro.local:16017
+17/05/03 10:34:37.977 INFO SlaveActor: Connecting to master YOSEMITE://127.0.0.1:1606
+17/05/03 10:34:37.978 INFO DataServer: Data Server starting....
+17/05/03 10:34:37.979 ERROR SlaveActor: Failed to connect to master
+Yosemite.YosemiteException: Invalid master URL: YOSEMITE://127.0.0.1:1606
+	at Yosemite.framework.master.Master$.toAkkaUrl(Master.scala:586)
+	at Yosemite.framework.slave.SlaveActor.connectToMaster(Slave.scala:89)
+	at Yosemite.framework.slave.SlaveActor.preStart(Slave.scala:69)
+	at akka.actor.ActorCell.create(ActorCell.scala:562)
+	at akka.actor.ActorCell.invokeAll$1(ActorCell.scala:425)
+	at akka.actor.ActorCell.systemInvoke(ActorCell.scala:447)
+	at akka.dispatch.Mailbox.processAllSystemMessages(Mailbox.scala:262)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:218)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)

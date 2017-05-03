@@ -1,0 +1,48 @@
+17/05/03 11:06:42.499 INFO Slf4jLogger: Slf4jLogger started
+17/05/03 11:06:43.076 INFO Master$MasterActor: Starting Yosemite master at Yosemite://10.0.0.31:1606
+start master ui
+17/05/03 11:06:43.130 INFO MasterWebUI: Started Master web UI at http://zhanghandeMacBook-Pro.local:16016
+17/05/03 11:06:52.199 INFO Master$MasterActor: Registering slave 10.0.0.31:52908
+17/05/03 11:07:22.546 INFO Master$MasterActor: Registered client BroadcastSender with ID CLIENT-000000 in 17 milliseconds
+17/05/03 11:07:22.607 INFO Master$MasterActor: Registering coflow Broadcast-dsdsds
+17/05/03 11:07:22.612 INFO Master$MasterActor: Registered coflow Broadcast-dsdsds with ID COFLOW-000000 in 7 milliseconds
+17/05/03 11:08:24.621 INFO Master$MasterActor: Registered client BroadcastReceiver with ID CLIENT-000001 in 1 milliseconds
+17/05/03 11:08:24.652 INFO Master$MasterActor: Received GetFlow(dsdsds1, COFLOW-000000, slave-20170503110651-10.0.0.31-52908, Actor[akka.tcp://YosemiteClient@10.0.0.31:52925/temp/$c])
+17/05/03 11:08:24.655 INFO Master$MasterActor: handleGetFlow(dsdsds1, COFLOW-000000, slave-20170503110651-10.0.0.31-52908, Actor[akka.tcp://YosemiteClient@10.0.0.31:52925/temp/$c])
+add Destination: dsdsds1
+addDestination: 1
+postProcessIfReady:number of registered flows1 maxflows1
+17/05/03 11:08:24.670 INFO Master$MasterActor: Added destination to CoflowInfo(COFLOW-000000[CoflowDescription(Broadcast-dsdsds[DEFAULT, 1])], state=READY, numRegisteredFlows=1, numCompletedFlows=0, bytesLeft= 200000, deadlineMillis= 0). 0 flows remain to register; in 15 milliseconds
+17/05/03 11:08:24.671 INFO Master$MasterActor: Coflow COFLOW-000000 ready to be scheduled
+17/05/03 11:08:24.698 INFO SEBFScheduler: Scheduling CoflowInfo(COFLOW-000000[CoflowDescription(Broadcast-dsdsds[DEFAULT, 1])], state=READY, numRegisteredFlows=1, numCompletedFlows=0, bytesLeft= 200000, deadlineMillis= 0)
+17/05/03 11:08:24.711 INFO Master$MasterActor: START_NEW_SCHEDULE: 1 flows in 1 coflows
+17/05/03 11:08:24.716 INFO Master$MasterActor: CoflowInfo(COFLOW-000000[CoflowDescription(Broadcast-dsdsds[DEFAULT, 1])], state=RUNNING, numRegisteredFlows=1, numCompletedFlows=0, bytesLeft= 200000, deadlineMillis= 0) ==> 1024.0 Mbps @ 1493824104707
+17/05/03 11:08:24.725 INFO Master$MasterActor: END_NEW_SCHEDULE in 88 = (37+37+14) milliseconds
+17/05/03 11:08:24.875 INFO Master$MasterActor: Received FlowProgress for flow dsdsds1 of CoflowInfo(COFLOW-000000[CoflowDescription(Broadcast-dsdsds[DEFAULT, 1])], state=RUNNING, numRegisteredFlows=1, numCompletedFlows=1, bytesLeft= 100000, deadlineMillis= 0) in 3 milliseconds
+17/05/03 11:08:25.293 ERROR EndpointWriter: AssociationError [akka.tcp://YosemiteMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52925]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52925]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52925]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52925
+]
+17/05/03 11:08:25.296 ERROR EndpointWriter: AssociationError [akka.tcp://YosemiteMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52925]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52925]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52925]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52925
+]
+17/05/03 11:08:25.303 ERROR EndpointWriter: AssociationError [akka.tcp://YosemiteMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52925]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52925]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52925]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52925
+]
+17/05/03 11:08:25.578 INFO Master$MasterActor: Removing CoflowInfo(COFLOW-000000[CoflowDescription(Broadcast-dsdsds[DEFAULT, 1])], state=FINISHED, numRegisteredFlows=1, numCompletedFlows=1, bytesLeft= 100000, deadlineMillis= 0)
+17/05/03 11:08:25.579 INFO Master$MasterActor: START_NEW_SCHEDULE: 0 flows in 0 coflows
+17/05/03 11:08:25.579 INFO Master$MasterActor: END_NEW_SCHEDULE in 0 = (0+0+0) milliseconds
+17/05/03 11:08:25.965 ERROR EndpointWriter: AssociationError [akka.tcp://YosemiteMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52920]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52920]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52920]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52920
+]
+17/05/03 11:08:25.969 ERROR EndpointWriter: AssociationError [akka.tcp://YosemiteMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52920]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52920]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52920]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52920
+]
+17/05/03 11:08:25.974 ERROR EndpointWriter: AssociationError [akka.tcp://YosemiteMaster@10.0.0.31:1606] -> [akka.tcp://YosemiteClient@10.0.0.31:52920]: Error [Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52920]] [
+akka.remote.EndpointAssociationException: Association failed with [akka.tcp://YosemiteClient@10.0.0.31:52920]
+Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon$2: Connection refused: /10.0.0.31:52920
+]

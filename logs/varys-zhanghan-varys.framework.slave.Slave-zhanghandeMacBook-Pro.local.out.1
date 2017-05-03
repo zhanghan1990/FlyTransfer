@@ -5,7 +5,7 @@ ServerSocket[addr=0.0.0.0/0.0.0.0,localport=1607]
 17/04/27 22:06:11.010 INFO DataServer: Created DataServer at 10.0.0.31:1607
 17/04/27 22:06:11.052 INFO SlaveWebUI: Started Slave web UI at http://zhanghandeMacBook-Pro.local:16017
 17/04/27 22:06:11.053 INFO DataServer: Data Server starting....
-17/04/27 22:06:11.053 INFO SlaveActor: Connecting to master varys://10.0.0.31:1606
+17/04/27 22:06:11.053 INFO SlaveActor: Connecting to master Yosemite://10.0.0.31:1606
 17/04/27 22:06:11.347 INFO SlaveActor: Successfully registered with master
 17/04/27 22:06:11.350 INFO SlaveActor: 0.0 0.0
 17/04/27 22:06:12.354 INFO SlaveActor: 552.0 618.0
@@ -685,11 +685,11 @@ Caused by: akka.remote.transport.netty.NettyTransport$$anonfun$associate$1$$anon
 17/04/27 22:17:00.364 INFO SlaveActor: 88155.0 6319.0
 17/04/27 22:17:01.365 INFO SlaveActor: 27742.0 6546.0
 17/04/27 22:17:01.548 WARN AbstractHttpConnection: /
-java.lang.NoClassDefFoundError: varys/framework/SlaveState
-	at varys.framework.slave.ui.IndexPage.render(IndexPage.scala:46)
-	at varys.framework.slave.ui.SlaveWebUI$$anonfun$8.apply(SlaveWebUI.scala:56)
-	at varys.framework.slave.ui.SlaveWebUI$$anonfun$8.apply(SlaveWebUI.scala:56)
-	at varys.ui.JettyUtils$$anon$1.handle(JettyUtils.scala:61)
+java.lang.NoClassDefFoundError: Yosemite/framework/SlaveState
+	at Yosemite.framework.slave.ui.IndexPage.render(IndexPage.scala:46)
+	at Yosemite.framework.slave.ui.SlaveWebUI$$anonfun$8.apply(SlaveWebUI.scala:56)
+	at Yosemite.framework.slave.ui.SlaveWebUI$$anonfun$8.apply(SlaveWebUI.scala:56)
+	at Yosemite.ui.JettyUtils$$anon$1.handle(JettyUtils.scala:61)
 	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1088)
 	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1024)
 	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:135)
@@ -707,7 +707,7 @@ java.lang.NoClassDefFoundError: varys/framework/SlaveState
 	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:608)
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:543)
 	at java.lang.Thread.run(Thread.java:745)
-Caused by: java.lang.ClassNotFoundException: varys.framework.SlaveState
+Caused by: java.lang.ClassNotFoundException: Yosemite.framework.SlaveState
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
 	at java.security.AccessController.doPrivileged(Native Method)
@@ -717,8 +717,8 @@ Caused by: java.lang.ClassNotFoundException: varys.framework.SlaveState
 	at java.lang.ClassLoader.loadClass(ClassLoader.java:358)
 	... 21 more
 17/04/27 22:17:01.548 ERROR ActorSystemImpl: Uncaught fatal error from thread [varysSlave-akka.actor.default-dispatcher-12] shutting down ActorSystem [varysSlave]
-java.lang.NoClassDefFoundError: varys/framework/SlaveState
-	at varys.framework.slave.SlaveActor$$anonfun$receive$1.applyOrElse(Slave.scala:138)
+java.lang.NoClassDefFoundError: Yosemite/framework/SlaveState
+	at Yosemite.framework.slave.SlaveActor$$anonfun$receive$1.applyOrElse(Slave.scala:138)
 	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:498)
 	at akka.actor.ActorCell.invoke(ActorCell.scala:456)
 	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:237)
@@ -728,7 +728,7 @@ java.lang.NoClassDefFoundError: varys/framework/SlaveState
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: java.lang.ClassNotFoundException: varys.framework.SlaveState
+Caused by: java.lang.ClassNotFoundException: Yosemite.framework.SlaveState
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:366)
 	at java.net.URLClassLoader$1.run(URLClassLoader.java:355)
 	at java.security.AccessController.doPrivileged(Native Method)

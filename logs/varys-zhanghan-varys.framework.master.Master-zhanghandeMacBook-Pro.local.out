@@ -1,5 +1,5 @@
 17/04/28 18:56:56.554 INFO Slf4jLogger: Slf4jLogger started
-17/04/28 18:56:57.451 INFO Master$MasterActor: Starting Varys master at varys://10.0.0.31:1606
+17/04/28 18:56:57.451 INFO Master$MasterActor: Starting Varys master at Yosemite://10.0.0.31:1606
 17/04/28 18:56:57.568 INFO MasterWebUI: Started Master web UI at http://zhanghandeMacBook-Pro.local:16016
 17/04/28 18:57:48.949 ERROR EndpointWriter: AssociationError [akka.tcp://varysMaster@10.0.0.31:1606] -> [akka.tcp://varysClient@10.0.0.31:50499]: Error [Association failed with [akka.tcp://varysClient@10.0.0.31:50499]] [
 akka.remote.EndpointAssociationException: Association failed with [akka.tcp://varysClient@10.0.0.31:50499]
