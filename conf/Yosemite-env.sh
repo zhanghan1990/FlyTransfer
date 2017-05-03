@@ -20,4 +20,4 @@
 #
 # KNOWN ISSUE(S)
 # - VARYS_MASTER_IP must be set manually for now
-YOSEMITE_MASTER_IP=127.0.0.1
+YOSEMITE_MASTER_IP=10.0.0.31

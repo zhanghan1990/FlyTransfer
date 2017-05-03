@@ -1,74 +1,71 @@
 #-*- coding: utf-8 -*-
 #!/usr/bin/python 
-import paramiko
-import threading
-
-
-# import paramiko
-# import select
-# client = paramiko.SSHClient()
-# client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-# client.connect("192.168.1.102","22","zhanghan","zhanghan",timeout=5)
-# transport = client.get_transport()
-# channel = transport.open_session()
-# channel.exec_command("tail -f /var/log/everything/current")
-# while True:
-#   rl, wl, xl = select.select([channel],[],[],0.0)
-#   if len(rl) > 0:
-#       # Must be stdout
-#       print channel.recv(1024)
-
-
-
-# def ssh2(ip,username,passwd,cmd,port):
-#     try:
-#         ssh = paramiko.SSHClient()
-#         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-#         ssh.connect(ip,port,username,passwd,timeout=5)
-#         stdin, stdout, stderr = ssh.exec_command(cmd)
-#         while True:
-#         	for line in iter(lambda: stdout.readline(2048), ""):
-#         		print(line)
-
-#     except :
-#         print '%s\tError\n'%(ip)
-
-
-
-
-
-# if __name__=='__main__':
-#     cmd = 'nonhup /root/Yosemite/bin/start-all.sh &'#你要执行的命令列表
-#     username = "root"  #用户名
-#     passwd = "zhanghan"    #密码
-#     threads = []   #多线程
-#     ip="192.168.1.102"
-#     # print "Begin......"
-#     # for i in range(1,254):
-#     #     ip = '192.168.1.'+str(i)
-#     #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,port))
-#     #     a.start() 
-
-#     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11111))
-#     a.start()
-
-# #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11112))
-# #     a.start()
-
-# #     a=threading.Thread(target=ssh2,args=(ip,username,passwd,cmd,11113))
-# #     a.start()
-
-
-
-
-
-
-
 
 import docker
-client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
+import thread
+import time
+import sys
 
-# # To create the dockers in our cloud
+def startCoflow(masterip,coflowname,coflowsize,clientnumber):
+    print "start coflow  "+coflowname+" coflow size "+str(coflowsize)
+    cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://'+masterip+':1606 '+str(clientnumber)+' '+ str(coflowsize)
+    print cmd
+
+
+
+
+
+if __name__ == "__main__":
+
+    # get the number of slaves, we want to start
+    print "Master ip  "+sys.argv[1]
+    masterip=sys.argv[1]
+
+    print "Start slave client number  "+sys.argv[2]
+    clientnum = int(sys.argv[2])
+
+
+
+    '''
+    stop all the slave in the data center at first
+    '''
+
+    client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
+    containerall=client.containers.list(filters={"ancestor":"slave"})
+    for c in containerall:
+        print "now removing slave"+c.name
+        c.stop()
+        c.remove()
+
+
+
+    '''
+    Start the slave we want to use in the experiment
+    clientArrat stores client array
+    '''
+    clientArray=[]
+    for i in range(0,clientnum):
+        c=client.containers.run(image='slave',detach=True)
+        print "run slave "+str(c)
+        clientArray.append(c)
+
+    '''
+    Start the experiment
+    '''
+
+    for i in range(0,clientnum):
+        try:
+            thread.start_new_thread(startCoflow,("192.168.1.102", "dsdsdsd",111,2))
+        except:
+            print "thread occurs exception"
+
+    while 1:
+        pass
+#     client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
+#     containerall=client.containers.list(filters={"ancestor":"slave"})
+#     for c in containerall:
+#         print c.attrs['NetworkSettings']['Networks']['bridge']['IPAddress']
+# # # To create the dockers in our cloud
 
 # # First check if the container exists
 # container=client.containers.run(image='192.168.1.102:5000/Yosemite',command='nohup /root/Yosemite/run Yosemite.framework.master.Master -n &',detach=True,name="master",ports={'22/tcp': 22226})
@@ -93,10 +90,8 @@ client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
 # for i in range(0,30):
 #     print client.containers.run(image='slave',detach=True)
 
-containerall=client.containers.list(filters={"ancestor":"slave"})
-for c in containerall:
-    print c.attrs['NetworkSettings']['Networks']['bridge']['IPAddress']
-# containerall[0].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://192.168.5.10:1606 2 \"DDDD\" 10000',detach=True)
+
+#containerall[0].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://192.168.5.10:1606 2 \"DDDD\" 10000',detach=True)
 # containerall[1].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://192.168.5.10:1606 1 \"111\" 10000',detach=True)
 # containerall[1].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastReceiver Yosemite://192.168.5.10:1606 192.168.5.42:1608  1',detach=True)
 # containerall[2].exec_run(cmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastReceiver Yosemite://192.168.5.10:1606 192.168.5.42:1608  2',detach=True)

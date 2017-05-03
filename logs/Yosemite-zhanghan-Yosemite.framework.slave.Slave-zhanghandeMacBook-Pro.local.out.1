@@ -1,11 +1,17 @@
-17/05/03 10:38:19.316 INFO Slf4jLogger: Slf4jLogger started
-17/05/03 10:38:19.686 INFO SlaveActor: Starting Yosemite slave 10.0.0.31:52431
-17/05/03 10:38:19.686 INFO SlaveActor: Yosemite home: /Users/zhanghan/Documents/文件资料/coflow/Yosemite/bin/..
-17/05/03 10:38:19.782 ERROR DataServer: Couldn't create data server due to java.net.BindException: Address already in use
-17/05/03 10:38:19.792 ERROR OneForOneStrategy: Couldn't create data server due to java.net.BindException: Address already in use
-akka.actor.ActorInitializationException: exception during creation
-	at akka.actor.ActorInitializationException$.apply(Actor.scala:218)
-	at akka.actor.ActorCell.create(ActorCell.scala:578)
+Yosemite//10.0.0.31:1606
+17/05/03 16:22:31.777 INFO Slf4jLogger: Slf4jLogger started
+17/05/03 16:22:32.252 INFO SlaveActor: Starting Yosemite slave 10.0.0.31:58917
+17/05/03 16:22:32.253 INFO SlaveActor: Yosemite home: /Users/zhanghan/Documents/文件资料/coflow/Yosemite
+17/05/03 16:22:32.296 INFO DataServer: Created DataServer at 10.0.0.31:1607
+17/05/03 16:22:32.346 INFO SlaveWebUI: Started Slave web UI at http://zhanghandeMacBook-Pro.local:16017
+17/05/03 16:22:32.346 INFO SlaveActor: Connecting to master Yosemite//10.0.0.31:1606
+17/05/03 16:22:32.346 INFO DataServer: Data Server starting....
+17/05/03 16:22:32.347 ERROR SlaveActor: Failed to connect to master
+Yosemite.YosemiteException: Invalid master URL: Yosemite//10.0.0.31:1606
+	at Yosemite.framework.master.Master$.toAkkaUrl(Master.scala:586)
+	at Yosemite.framework.slave.SlaveActor.connectToMaster(Slave.scala:89)
+	at Yosemite.framework.slave.SlaveActor.preStart(Slave.scala:69)
+	at akka.actor.ActorCell.create(ActorCell.scala:562)
 	at akka.actor.ActorCell.invokeAll$1(ActorCell.scala:425)
 	at akka.actor.ActorCell.systemInvoke(ActorCell.scala:447)
 	at akka.dispatch.Mailbox.processAllSystemMessages(Mailbox.scala:262)
@@ -15,8 +21,3 @@ akka.actor.ActorInitializationException: exception during creation
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-Caused by: Yosemite.YosemiteException: Couldn't create data server due to java.net.BindException: Address already in use
-	at Yosemite.framework.DataServer.<init>(DataServer.scala:138)
-	at Yosemite.framework.slave.SlaveActor.preStart(Slave.scala:65)
-	at akka.actor.ActorCell.create(ActorCell.scala:562)
-	... 9 more

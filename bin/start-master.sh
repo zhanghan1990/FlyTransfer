@@ -32,8 +32,8 @@ if [ "$YOSEMITE_PUBLIC_DNS" = "" ]; then
     fi
 fi
 
-"$bin"/YOSEMITE-daemon.sh start Yosemite.framework.master.Master --ip $YOSEMITE_MASTER_IP --port $YOSEMITE_MASTER_PORT --webui-port $YOSEMITE_MASTER_WEBUI_PORT -n
+"$bin"/Yosemite-daemon.sh start Yosemite.framework.master.Master --ip $YOSEMITE_MASTER_IP --port $YOSEMITE_MASTER_PORT --webui-port $YOSEMITE_MASTER_WEBUI_PORT -n
 
 # Start a slave agent at the Master
 sleep 1
-"$bin"/YOSEMITE-daemon.sh start Yosemite.framework.slave.Slave YOSEMITE://$YOSEMITE_MASTER_IP:$YOSEMITE_MASTER_PORT -n
+"$bin"/Yosemite-daemon.sh start Yosemite.framework.slave.Slave Yosemite://$YOSEMITE_MASTER_IP:$YOSEMITE_MASTER_PORT -n

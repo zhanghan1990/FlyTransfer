@@ -2,7 +2,7 @@
 Yosemite tries to minimize weight coflow completion time.
 some codes of Yosemite borrow from Varys
 
-## Building Yosemite
+### Building Yosemite
 
 ```
 git clone https://github.com/zhanghan1990/Yosemite.git
@@ -29,8 +29,30 @@ web address of the master, then copy the address as master-address
 #### Start slave at each node (including the master node)
 
 ```
-java  -cp /Yosemite-core-assembly-0.2.0-SNAPSHOT.jar Yosemite.framework.slave.Slave $master-address -n
+java  -cp /yourpath/Yosemite-core-assembly-0.2.0-SNAPSHOT.jar Yosemite.framework.slave.Slave $master-address -n
 ```
 note file log4j.properties should at the same directory with Yosemite-core-assembly-0.2.0-SNAPSHOT.jar and Yosemite-core-assembly-0.2.0-SNAPSHOT.jar
 
 #### Start application at every node
+###### Use the broadcast as the example
+- Start the sender
+
+```
+java  -cp  Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender  $master-address 1 "dsdsds" 100000
+```
+You will get the broadcast sender address
+
+
+- Start the client
+
+```
+java  -cp  Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastReceiver $master-address  $Broadcastaddress:1608 1
+```
+
+
+### Deploy on docker
+Yosemite can run at docker.
+##### Generate images with Dockerfile
+```
+
+```

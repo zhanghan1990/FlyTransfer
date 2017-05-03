@@ -1,12 +1,13 @@
-17/05/03 10:16:15.214 INFO Slf4jLogger: Slf4jLogger started
-17/05/03 10:16:15.617 INFO SlaveActor: Starting Yosemite slave 10.0.0.31:52205
-17/05/03 10:16:15.619 INFO SlaveActor: Yosemite home: /Users/zhanghan/Documents/文件资料/coflow/Yosemite/bin/..
-17/05/03 10:16:15.728 INFO DataServer: Created DataServer at 10.0.0.31:1607
-17/05/03 10:16:15.766 INFO SlaveWebUI: Started Slave web UI at http://zhanghandeMacBook-Pro.local:16017
-17/05/03 10:16:15.768 INFO DataServer: Data Server starting....
-17/05/03 10:16:15.768 INFO SlaveActor: Connecting to master YOSEMITE://127.0.0.1:1606
-17/05/03 10:16:15.771 ERROR SlaveActor: Failed to connect to master
-Yosemite.VarysException: Invalid master URL: YOSEMITE://127.0.0.1:1606
+Yosemite.framework.slave.SlaveArguments@1813ed0e
+17/05/03 16:19:11.004 INFO Slf4jLogger: Slf4jLogger started
+17/05/03 16:19:11.347 INFO SlaveActor: Starting Yosemite slave 10.0.0.31:58865
+17/05/03 16:19:11.347 INFO SlaveActor: Yosemite home: /Users/zhanghan/Documents/文件资料/coflow/Yosemite
+17/05/03 16:19:11.411 INFO DataServer: Created DataServer at 10.0.0.31:1607
+17/05/03 16:19:11.465 INFO SlaveWebUI: Started Slave web UI at http://zhanghandeMacBook-Pro.local:16017
+17/05/03 16:19:11.467 INFO DataServer: Data Server starting....
+17/05/03 16:19:11.467 INFO SlaveActor: Connecting to master YOSEMITE://10.0.0.31:1606
+17/05/03 16:19:11.470 ERROR SlaveActor: Failed to connect to master
+Yosemite.YosemiteException: Invalid master URL: YOSEMITE://10.0.0.31:1606
 	at Yosemite.framework.master.Master$.toAkkaUrl(Master.scala:586)
 	at Yosemite.framework.slave.SlaveActor.connectToMaster(Slave.scala:89)
 	at Yosemite.framework.slave.SlaveActor.preStart(Slave.scala:69)

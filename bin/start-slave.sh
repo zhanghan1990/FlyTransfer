@@ -11,4 +11,6 @@ if [ "$YOSEMITE_PUBLIC_DNS" = "" ]; then
     fi
 fi
 
-"$bin"/varys-daemon.sh start Yosemite.framework.slave.Slave $1
+echo $1
+
+"$bin"/Yosemite-daemon.sh start Yosemite.framework.slave.Slave $1
