@@ -54,5 +54,6 @@ java  -cp  Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.Broad
 Yosemite can run at docker.
 ##### Generate images with Dockerfile
 ```
-
+docker build -t master -f  master/Dockerfile .
+docker build -t slave -f work/Dockerfile .
 ```

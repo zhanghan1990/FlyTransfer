@@ -485,8 +485,9 @@ private[Yosemite] class Master(
       var st = now
 
       // Schedule coflows
+
       val activeCoflows = idToCoflow.values.toBuffer.asInstanceOf[ArrayBuffer[CoflowInfo]].filter(
-        x => x.remainingSizeInBytes > 0 &&
+        x => x.remainingSizeInBytes > 1 &&
           (x.curState == CoflowState.READY || x.curState == CoflowState.RUNNING))
 
       val activeSlaves = idToSlave.values.toBuffer.asInstanceOf[ArrayBuffer[SlaveInfo]]
