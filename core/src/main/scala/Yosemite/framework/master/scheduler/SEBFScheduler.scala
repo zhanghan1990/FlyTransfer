@@ -12,9 +12,8 @@ class SEBFScheduler extends OrderingBasedScheduler with Logging {
 
   override def getOrderedCoflows(
                                   activeCoflows: ArrayBuffer[CoflowInfo]): ArrayBuffer[CoflowInfo] = {
-      if(activeCoflows.isEmpty==true){
-        println("activecoflows is empty")
-      }
+
+      println(activeCoflows.size)
       activeCoflows.sortWith(_.calcAlpha < _.calcAlpha)
   }
 
