@@ -41,10 +41,10 @@ def receiveCoflow(clientid,flowid,masterip,broadmaster):
 if __name__ == "__main__":
 
     '''
-    Get the number of slaves, we want to start
+    Get the number of slaves, we want to start  base_url='tcp://127.0.0.1:2375'
     '''
 
-    client = docker.DockerClient(base_url='tcp://192.168.1.102:2375')
+    client = docker.DockerClient(base_url='unix://var/run/docker.sock')
     print "Start slave client number  "+sys.argv[1]
     clientnum = int(sys.argv[1])
 
@@ -97,6 +97,7 @@ if __name__ == "__main__":
         print cmd
         slavename='Yosemiteslave-'+str(i)
         c=client.containers.run(image='slave',name=slavename,command=cmd,detach=True)
+        time.sleep(1)
         print "run slave "+str(c)
 
 
@@ -115,6 +116,7 @@ if __name__ == "__main__":
             width=int(random.uniform(1,clientnum))
 
             thread.start_new_thread(startCoflow,(i,masterip, coflowName,flowsize,width))
+            time.sleep(1)
         except:
             print "thread occurs exception"
 
@@ -133,6 +135,7 @@ if __name__ == "__main__":
                         clientid=int(random.uniform(0,clientnum))
                     used.append(clientid)
                     thread.start_new_thread(receiveCoflow,(clientid,i+1,masterip,t['broadmaster']))
+                    time.sleep(1)
                     if mutex.acquire(1):
                         t['isdeal']=True
                         mutex.release()

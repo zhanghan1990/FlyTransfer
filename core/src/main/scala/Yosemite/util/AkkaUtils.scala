@@ -39,6 +39,7 @@ private[Yosemite] object AkkaUtils {
         daemonic = on
         jvm-exit-on-fatal-error = off
         loggers = ["akka.event.slf4j.Slf4jLogger"]
+        logging-filter = "akka.event.slf4j.Slf4jLoggingFilter"
         extensions = ["com.romix.akka.serialization.kryo.KryoSerializationExtension$"]
 
         actor {

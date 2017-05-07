@@ -165,7 +165,10 @@ private[Yosemite] class CoflowInfo(
       sBytes(src) = sBytes(src) + flowInfo.bytesLeft
       rBytes(dst) = rBytes(dst) + flowInfo.bytesLeft
     }
-    math.max(sBytes.values.max, rBytes.values.max)
+    if(sBytes.isEmpty||rBytes.isEmpty)
+      0
+    else
+      math.max(sBytes.values.max, rBytes.values.max)
   }
 
   def getFlows() = idToFlow.values.asScala.filter(_.isLive)

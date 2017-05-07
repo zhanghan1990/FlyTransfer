@@ -490,6 +490,13 @@ private[Yosemite] class Master(
         x => x.remainingSizeInBytes > 1 &&
           (x.curState == CoflowState.READY || x.curState == CoflowState.RUNNING))
 
+
+//      var t = activeCoflows.iterator()
+      //      while(t.hasNext){
+      //        var k=t.next()
+      //       logInfo("show active details"+k.toString)
+      //      }
+
       val activeSlaves = idToSlave.values.toBuffer.asInstanceOf[ArrayBuffer[SlaveInfo]]
       val schedulerOutput = coflowScheduler.schedule(SchedulerInput(activeCoflows, activeSlaves))
 

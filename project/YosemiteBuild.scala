@@ -1,5 +1,5 @@
 import sbt.Classpaths.managedJars
-import sbt.Keys._
+import sbt.Keys.{libraryDependencies, _}
 import sbt._
 
 
@@ -43,6 +43,7 @@ object YosemiteBuild extends Build {
       "com.typesafe.akka" %% "akka-actor" % "2.2.3" excludeAll (excludeNetty),
       "com.typesafe.akka" %% "akka-remote" % "2.2.3" excludeAll (excludeNetty),
       "com.typesafe.akka" %% "akka-slf4j" % "2.2.3" excludeAll (excludeNetty),
+      "org.fusesource" % "sigar" % "1.6.4" classifier("native") classifier(""),
       "net.liftweb" %% "lift-json" % "2.5.1",
       "io.netty" % "netty-all" % "4.0.23.Final",
       "org.fusesource" % "sigar" % sigarVersion classifier "" classifier "native",
@@ -80,7 +81,9 @@ object YosemiteBuild extends Build {
   )
 
   def examplesSettings = sharedSettings ++ Seq(
-    name := "Yosemite-examples"
+    name := "Yosemite-examples",
+      libraryDependencies ++= Seq(
+        "org.fusesource" % "sigar" % "1.6.4" classifier("native") classifier(""))
   )
 
   def sharedSettings = Defaults.defaultSettings ++ Seq(
