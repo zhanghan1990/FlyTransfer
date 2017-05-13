@@ -60,8 +60,7 @@ Yosemite can run at docker.
 ```
 python deploy.py
 ```
-#### get avarage coflow completion time and average coflow
-weight completion time 
+#### get avarage coflow completion time and average coflow weight completion time 
 ```
 python analysis.py
 ```
