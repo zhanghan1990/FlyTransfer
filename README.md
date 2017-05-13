@@ -38,7 +38,7 @@ note file log4j.properties should at the same directory with Yosemite-core-assem
 - Start the sender
 
 ```
-java  -cp  Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender  $master-address 1 "dsdsds" 100000
+java  -cp  Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender  $master-address 1 "dsdsds" 100000 0  2
 ```
 You will get the broadcast sender address
 
