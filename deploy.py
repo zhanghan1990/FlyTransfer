@@ -17,9 +17,9 @@ MAXFLOWSIZE=1024*1024*100
 MINFLOWSIZE=1024*1024
 
 mutex = threading.Lock()
-def startCoflow(clientid,masterip,coflowname,coflowsize,clientnumber):
+def startCoflow(clientid,masterip,coflowname,coflowsize,clientnumber,weight):
     print "start coflow  "+coflowname+" coflow size "+str(coflowsize)
-    coflowCmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://'+masterip+':1606 '+str(clientnumber)+' '+ coflowname+' '+str(coflowsize)
+    coflowCmd='java -cp Yosemite-examples-assembly-0.2.0-SNAPSHOT.jar Yosemite.examples.BroadcastSender Yosemite://'+masterip+':1606 '+str(clientnumber)+' '+ coflowname+' '+str(coflowsize)+' '+str(weight)
     print coflowCmd
     slaveall[clientid].exec_run(cmd=coflowCmd,detach=True)
     if mutex.acquire(1):
@@ -41,7 +41,9 @@ def receiveCoflow(clientid,flowid,masterip,broadmaster):
 if __name__ == "__main__":
 
     '''
-    Get the number of slaves, we want to start  base_url='tcp://127.0.0.1:2375'
+    
+    base_url='tcp://192.168.1.102:2375'
+    Get the number of slaves, we want to start 
     '''
 
     client = docker.DockerClient(base_url='unix://var/run/docker.sock')
@@ -114,14 +116,14 @@ if __name__ == "__main__":
             coflowName="coflow-"+str(i)
             flowsize=int(random.uniform(MINFLOWSIZE, MAXFLOWSIZE))
             width=int(random.uniform(1,clientnum))
-
-            thread.start_new_thread(startCoflow,(i,masterip, coflowName,flowsize,width))
+            weight=int(random.uniform(1,5))
+            thread.start_new_thread(startCoflow,(i,masterip, coflowName,flowsize,width,weight))
             time.sleep(1)
         except:
             print "thread occurs exception"
 
 
-    time.sleep(10)
+    time.sleep(2)
 
     while 1:
         for t in Task:
@@ -135,9 +137,7 @@ if __name__ == "__main__":
                         clientid=int(random.uniform(0,clientnum))
                     used.append(clientid)
                     thread.start_new_thread(receiveCoflow,(clientid,i+1,masterip,t['broadmaster']))
-                    time.sleep(1)
                     if mutex.acquire(1):
                         t['isdeal']=True
                         mutex.release()
-        time.sleep(5)
         pass

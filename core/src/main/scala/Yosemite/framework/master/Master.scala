@@ -49,7 +49,7 @@ private[Yosemite] class Master(
   // Create the scheduler object
   val schedulerClass = System.getProperty(
     "Yosemite.master.scheduler",
-    "Yosemite.framework.master.scheduler.SEBFScheduler")
+    "Yosemite.framework.master.scheduler.YosemiteScheduler")
   val coflowScheduler = Class.forName(schedulerClass).newInstance.asInstanceOf[CoflowScheduler]
 
   // ExecutionContext for Futures
@@ -95,6 +95,9 @@ private[Yosemite] class Master(
     override def postStop() {
       webUi.stop()
     }
+
+//    override def postRestart(reason: Throwable): Unit =
+//      super.postRestart(reason)
 
     override def receive = {
       case RegisterSlave(id, host, slavePort, slave_webUiPort, slave_commPort, publicAddress) => {
@@ -546,6 +549,7 @@ private[Yosemite] class Master(
         completedCoflows += coflow // Remember it in our history
         coflow.markFinished(endState)
         logInfo("Removing " + coflow+"")
+        logInfo("duration of coflow"+coflow+" "+coflow.duration+" weight duration "+coflow.weightduration+" duration")
 
         if (reschedule) {
           self ! ScheduleRequest

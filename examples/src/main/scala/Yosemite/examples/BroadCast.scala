@@ -34,8 +34,8 @@ private[Yosemite] object BroadcastSender extends Logging {
   }
 
   def main(args: Array[String]) {
-    if (args.length < 4) {
-      println("USAGE: BroadcastSender <varysMasterUrl> <numSlaves> <dataName> <Size>B")
+    if (args.length < 5) {
+      println("USAGE: BroadcastSender <YosemiteMasterUrl> <numSlaves> <dataName> <Size>B,<weight>")
       System.exit(1)
     }
 
@@ -45,12 +45,14 @@ private[Yosemite] object BroadcastSender extends Logging {
 
     val LEN_BYTES = args(3).toInt
 
+    val Weight=args(4).toDouble
 
     val listener = new TestListener
     val client = new YosemiteClient("BroadcastSender", url, false, listener)
     client.start()
 
-    val desc = new CoflowDescription("Broadcast-" + DataName, CoflowType.DEFAULT, numSlaves, LEN_BYTES * numSlaves)
+
+    val desc = new CoflowDescription("Broadcast-" + DataName, CoflowType.DEFAULT, numSlaves, LEN_BYTES * numSlaves,0,Weight)
 
     val coflowId = client.registerCoflow(desc)
     logInfo("Registered coflow " + coflowId)

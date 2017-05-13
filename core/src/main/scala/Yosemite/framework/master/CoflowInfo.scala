@@ -167,9 +167,13 @@ private[Yosemite] class CoflowInfo(
     }
     if(sBytes.isEmpty||rBytes.isEmpty)
       0
-    else
-      math.max(sBytes.values.max, rBytes.values.max)
+    else if(math.max(sBytes.values.max, rBytes.values.max)<=0.00001){
+      0
+    }else{
+      desc.weight/math.max(sBytes.values.max, rBytes.values.max)
+    }
   }
+
 
   def getFlows() = idToFlow.values.asScala.filter(_.isLive)
 
@@ -215,6 +219,17 @@ private[Yosemite] class CoflowInfo(
       endTime - startTime
     } else {
       System.currentTimeMillis() - startTime
+    }
+  }
+
+
+  def weightduration:Double={
+
+    if(endTime != -1){
+      desc.weight*(endTime-startTime)
+    }
+    else{
+      desc.weight*(System.currentTimeMillis()-startTime)
     }
   }
 
