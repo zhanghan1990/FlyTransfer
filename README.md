@@ -1,8 +1,8 @@
-# Yosemite
-Yosemite tries to minimize weight coflow completion time.
+# FlyTransfer
+FlyTransfer tries to minimize weight coflow completion time.
 some codes of Yosemite borrow from Varys
 
-### Building Yosemite
+### Building FlyTransfer
 
 ```
 git clone https://github.com/zhanghan1990/Yosemite.git
